@@ -1,0 +1,11 @@
+{
+  "name": "maedeup-paper-build",
+  "private": true,
+  "description": "〈매듭: 신윤복을 엮다〉 방법론 소논문 docx 빌드",
+  "scripts": {
+    "build": "node method_part2.js"
+  },
+  "dependencies": {
+    "docx": "^9.8.1"
+  }
+}

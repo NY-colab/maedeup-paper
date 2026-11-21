@@ -1,0 +1,12 @@
+# 개인정보 자료(카톡 원본 등)는 로컬에만
+private/*
+!private/README.md
+
+# 빌드 산출물
+build/out/
+node_modules/
+
+# 편집 중 임시 파일
+~$*
+.~lock.*
+.DS_Store
