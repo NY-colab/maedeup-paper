@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>매듭 논문 회의</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: 교수님과 화면을 함께 보며 정하는 회의 자료, 차분하고 단정하게
+   IDEA 책가도: 칸마다 안건이 놓이고, 오늘 채울 빈 칸 하나가 남아 있는 서가
+   PICTURE 2025 원점부터 La MaMa 초연까지 개고 이력을 한 가닥 끈에 맺힌 매듭으로, 끝에 노리개 술
+   COLOUR 흰 바탕, 쪽빛(주), 먹(글), 연지(노리개 술·공연 시점)
+   TYPE Gowun Batang 제목 + Noto Sans KR 본문
+   LAYOUT 쪽빛 띠 안에 제목과 끈 그림, 그 아래 책가도 안건판, 이어서 안건별 구역. 760px 아래에서 끈은 세로로 */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#13151a);--ink:light-dark(#1b1a18,#ecebe6);--muted:light-dark(#57554f,#aaa8a1);--indigo:light-dark(#26428b,#93a9e6);--tint:light-dark(#eef2fb,#1b2238);--crimson:light-dark(#b3243c,#ff7a90);--line:light-dark(#dcdad3,#2f323b);--panel:light-dark(#f7f7f4,#1a1d24);--band:light-dark(#22397a,#18234a)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Noto Sans KR",system-ui,sans-serif;overflow-x:clip;word-break:keep-all;overflow-wrap:break-word}
+h1,h2,h3{font-family:"Gowun Batang",serif;font-weight:700;line-height:1.15;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h2{font-size:clamp(26px,3.2vw,36px);margin-bottom:10px}
+h3{font-size:20px;margin-bottom:6px}
+p{margin:0 0 12px}
+a{color:var(--indigo)}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(28px,4vw,60px);padding-inline:max(5vw,16px)}
+.hero{background:var(--band);color:#f4f2ec;--c-cord:#efe9da;--c-ev:#ff8fa2;--c-txt:#f4f2ec;--c-sub:#c3cbe6}
+.hero h1{font-size:clamp(30px,4.2vw,48px);max-width:22ch}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--c-sub);font-size:15px;margin-bottom:14px}
+.meta b{color:#fff;font-weight:500}
+.lede{font-size:17px;max-width:62ch;margin-top:14px;color:#e6e3da}
+.lede strong{color:#fff}
+.paper{font-family:"Gowun Batang",serif;font-size:17px;color:#d8dcef;margin-top:16px;max-width:70ch}
+.fig{position:relative;height:250px;margin-top:22px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.fig text{font-family:"Noto Sans KR",sans-serif}
+.nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .scroll{display:flex;gap:4px;overflow-x:auto;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto}
+.nav a{flex:none;text-decoration:none;color:var(--ink);font-size:15px;padding:8px 12px;border-radius:6px;min-height:40px;display:flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{background:var(--tint);color:var(--indigo);outline:none}
+@media(max-width:900px){.nav{position:static}}
+.shelf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:3px solid var(--indigo);background:var(--indigo);gap:3px}
+.cell{background:var(--bg);padding:18px 18px 16px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px;min-height:132px}
+.cell:hover,.cell:focus-visible{background:var(--tint);outline:none}
+.cell span{font-family:"Gowun Batang",serif;font-size:20px;font-weight:700;color:var(--indigo)}
+.cell small{font-size:14px;color:var(--muted);line-height:1.5}
+.cell.tall{grid-row:span 2;grid-column:3;background:repeating-linear-gradient(135deg,var(--bg) 0 14px,var(--tint) 14px 15px);justify-content:space-between}
+.cell.tall em{font-style:normal;font-size:14px;color:var(--crimson);font-weight:700}
+.cell.tall svg{width:44px;height:110px;align-self:center}
+.shelf-note{font-size:14px;color:var(--muted);margin-top:10px}
+section{border-top:1px solid var(--line)}
+.intro{color:var(--muted);max-width:68ch;margin-bottom:22px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:20px}
+ol.q,ol.pr{margin:0;padding-left:1.3em}
+ol.q li,ol.pr li{margin-bottom:8px}
+ol.pr b{color:var(--indigo)}
+.chg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.chg div{border-top:3px solid var(--indigo);padding-top:10px}
+.chg b{display:block;font-size:15px;margin-bottom:4px}
+.chg p{font-size:15px;color:var(--muted);margin:0}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-weight:700;font-size:14px;color:var(--muted);border-bottom:2px solid var(--ink)}
+td:first-child{white-space:nowrap;font-weight:500;color:var(--indigo)}
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.opt{all:unset;box-sizing:border-box;cursor:pointer;border:1.5px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:8px;background:var(--bg)}
+.opt:hover{border-color:var(--indigo)}
+.opt:focus-visible{outline:3px solid var(--indigo);outline-offset:2px}
+.opt[aria-pressed=true]{border-color:var(--crimson);box-shadow:inset 0 0 0 2px var(--crimson)}
+.opt .tag{font-family:"Gowun Batang",serif;font-size:28px;font-weight:700;color:var(--indigo);line-height:1}
+.opt .h{display:block;font-family:"Gowun Batang",serif;font-weight:700;font-size:19px;line-height:1.2}
+.opt .p{display:block;font-size:15px}
+.opt .fit{color:var(--muted)}
+.opt .pick{margin-top:auto;font-size:14px;font-weight:700;color:var(--crimson);visibility:hidden}
+.opt[aria-pressed=true] .pick{visibility:visible}
+.asks{margin-top:22px}
+.asks li{margin-bottom:6px}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.checks label{display:flex;gap:14px;align-items:flex-start;padding:12px 6px;border-bottom:1px solid var(--line);cursor:pointer}
+.checks input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--crimson);flex:none}
+.checks small{display:block;color:var(--muted);font-size:14px}
+.checks input:checked+span{color:var(--muted)}
+.form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.form label{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted)}
+input[type=date],input[type=text],select,textarea{font:16px "Noto Sans KR",sans-serif;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;min-height:44px;width:100%}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;border-color:var(--indigo);box-shadow:0 0 0 3px var(--tint)}
+textarea{min-height:150px;resize:vertical;margin-top:16px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
+button.b{font:500 15px "Noto Sans KR",sans-serif;min-height:44px;padding:0 18px;border-radius:6px;border:1.5px solid var(--indigo);background:var(--indigo);color:#fff;cursor:pointer}
+button.b.ghost{background:transparent;color:var(--indigo)}
+button.b:focus-visible{outline:3px solid var(--crimson);outline-offset:2px}
+#status{font-size:14px;color:var(--muted)}
+footer{font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+@media(max-width:900px){.chg{grid-template-columns:repeat(2,minmax(0,1fr))}.opts{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){.shelf{grid-template-columns:repeat(2,minmax(0,1fr))}.cell.tall{grid-column:1/-1;grid-row:auto;flex-direction:row;align-items:center;min-height:0}.cell.tall svg{height:70px}.two,.form{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.shelf{grid-template-columns:minmax(0,1fr)}.cell{min-height:0}.cell.tall{flex-direction:column;align-items:flex-start}.cell.tall svg{display:none}.chg{grid-template-columns:minmax(0,1fr)}table{font-size:14px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:block;border:0;padding:3px 0}.stack td::before{content:attr(data-l);display:block;font-size:13px;color:var(--muted)}td:first-child{white-space:normal}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.knot{animation:none!important}}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.knot{animation:rise .5s ease-out both}
+</style>
+<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
+</head>
+<body>
+
+<header class="band hero">
+  <div class="wrap">
+    <div class="meta"><span><b>논문 회의</b> 2026년 11월 29일(일) 오후 9시, 화상</span><span>김지영 교수님 · 김나영</span></div>
+    <h1>〈매듭〉 대본 작성 방법론 논문, 같이 정하고 싶은 것들</h1>
+    <p class="lede">오늘은 <strong>저자 구성</strong>을 먼저 정하고, 그에 맞춰 <strong>논문 방향</strong>과 <strong>투고처·일정</strong>을 정했으면 합니다. 마지막으로 교수님께 확인받을 사실관계와 인용 동의를 함께 살펴봐 주세요.</p>
+    <p class="paper">「조선 풍속화의 시각 정보를 넌버벌 퍼포먼스 서사로 변환하는 대본 작성 방법론 연구: ⟨매듭: 신윤복을 엮다⟩의 개고 과정을 중심으로」 보충 초안 · 39쪽 · 각주 51개</p>
+    <div class="fig" id="cordfig" role="img" aria-label="2025년 8월 쇼케이스 원점부터 2026년 9월 La MaMa 초연까지 대본 개고 이력"><svg id="cord"></svg></div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="안건"><div class="scroll">
+  <a href="#draft">논문 한눈에</a><a href="#review">확인받고 싶은 대목</a><a href="#authors">저자 구성</a><a href="#direction">논문 방향</a><a href="#journals">투고처</a><a href="#checks">확인·동의</a><a href="#next">다음 단계</a>
+</div></nav>
+
+<div class="band"><div class="wrap">
+  <div class="shelf">
+    <a class="cell" href="#draft"><span>논문 한눈에</span><small>연구 질문 다섯, 원칙 다섯, 7월 원고에서 바뀐 점</small></a>
+    <a class="cell" href="#review"><span>확인받고 싶은 대목</span><small>교수님 설명·댓글·메시지에 기댄 여덟 곳</small></a>
+    <a class="cell tall" href="#authors"><span>저자 구성</span><small>한 편을 같이 쓸지, 두 편으로 나눌지, 단독에 감수로 할지</small>
+      <svg viewBox="0 0 44 110" aria-hidden="true"><path d="M22 0v20" stroke="var(--indigo)" stroke-width="2.5"/><circle cx="22" cy="28" r="8" fill="none" stroke="var(--crimson)" stroke-width="3"/><path d="M14 40h16l5 10H9z" fill="var(--crimson)"/><g stroke="var(--crimson)" stroke-width="2">
+      <path d="M11 52v50M15 52v54M19 52v52M22 52v56M25 52v52M29 52v54M33 52v50"/></g></svg>
+      <em>오늘 채울 칸</em></a>
+    <a class="cell" href="#direction"><span>논문 방향</span><small>다루는 범위, 분량, 제목</small></a>
+    <a class="cell" href="#journals"><span>투고처</span><small>국내 등재지 넷, 해외 둘</small></a>
+    <a class="cell" href="#checks"><span>확인·동의</span><small>인용 동의, 출처, 명칭, 도판</small></a>
+    <a class="cell" href="#next"><span>다음 단계</span><small>마감, 주고받는 방식, 회의 메모</small></a>
+  </div>
+  <p class="shelf-note">공연 마지막에 노리개가 책가도의 빈 칸을 채우듯, 오늘 회의에서 비어 있는 칸은 저자 구성 하나입니다. 원고 PDF는 회의 전에 따로 보내드립니다.</p>
+</div></div>
+
+<section id="draft" class="band"><div class="wrap">
+  <h2>논문은 다섯 질문에 다섯 원칙으로 답합니다</h2>
+  <p class="intro">2025년 쇼케이스 대본에서 출발해 사전 대본 일곱 버전, 연습과 시연, 최종 기록 대본 '260917'까지의 개고 과정을 텍스트 대조로 분석했습니다.</p>
+  <div class="two">
+    <div class="panel"><h3>연구 질문</h3><ol class="q">
+      <li>풍속화의 시각 정보(인물 수, 배경, 소품, 구도)를 대본의 서사 정보(감정, 관계, 사건)로 옮길 때 지킬 원칙은 무엇인가</li>
+      <li>스토리 설계도로서 넌버벌 대본의 문체는 어떻게 규정되고, 개고 동안 어떻게 유지되는가</li>
+      <li>그림 순서와 인물 구성이 다른 복수 버전을 함께 쓸 때 무엇을 고정하고 무엇을 나누는가</li>
+      <li>장면별 감정 서술은 어떻게 전체 감정 아크로 엮이는가</li>
+      <li>연습과 상연을 거친 작품을 다시 대본으로 옮길 때 서술 기준은 어떻게 달라지고, 연출의 요청은 어떻게 대본의 언어가 되는가</li>
+    </ol></div>
+    <div class="panel"><h3>결론의 원칙</h3><ol class="pr">
+      <li><b>원화 정밀 확인과 시각 정보의 항목화</b> 사실과 해석을 나누어 기록하고, 변형은 무엇을 바꾸고 지켰는지 밝힌다</li>
+      <li><b>창작 메모와 네거티브 샘플</b> 실제로 살아남았던 문장을 금지의 예로 적어 둔다</li>
+      <li><b>복수 버전의 고정과 분기</b> 장면의 기능은 고정하고 인물 배치만 나눈다</li>
+      <li><b>감정 아크의 후행 통합</b> 구조가 정해진 뒤에 아크를 엮는다</li>
+      <li><b>기록 대본의 서술 기준</b> 무대의 사건을 그림 세계 안의 동기로 쓰고, 상연 순서와 번역본에 맞춘다</li>
+    </ol></div>
+  </div>
+  <div class="chg">
+    <div><b>범위를 넓혔습니다</b><p>7월 원고는 '260411'에서 멈췄는데, 2025 쇼케이스(원점)부터 2026년 9월 기록 대본까지로 넓혔습니다.</p></div>
+    <div><b>6장 기록 대본을 새로 썼습니다</b><p>연습실을 거친 대본, 원점의 회귀, 연출의 언어에서 서사의 언어로, 기록 대본의 서술 기준(표 3).</p></div>
+    <div><b>사실관계를 바로잡았습니다</b><p>월하정인에서 등불을 든 사람은 선비라는 점(그림 2 추가), '치마폭…' 문장의 출처, '쌍륙삼매' 표기.</p></div>
+    <div><b>공연 시점</b><p>La MaMa 초연(2026년 9월 24~27일, The Downstairs)을 과거형으로, 2025년은 학내 쇼케이스로 정리했습니다.</p></div>
+    <div><b>부록 1.7 댓글 반영표</b><p>'260913'·'260915' 댓글 21건 대조. 교수님 요청 20건 중 17건 반영, 3건은 일부 반영 또는 대조가 남음.</p></div>
+    <div><b>부록 1.8 세 시기 대조</b><p>2025 쇼케이스 대본, '260411', '260917'의 장 순서와 핵심 요소.</p></div>
+  </div>
+</div></section>
+
+<section id="review" class="band"><div class="wrap">
+  <h2>교수님의 설명과 기록에 기대어 쓴 곳들</h2>
+  <p class="intro">아래 대목은 교수님의 회의 설명, 공유 문서 댓글, 메시지를 근거로 썼습니다. 사실관계와 표현이 맞는지 봐 주세요.</p>
+  <div class="scroll"><table class="stack">
+    <thead><tr><th>절</th><th>내용</th><th>근거</th><th>봐 주셨으면 하는 것</th></tr></thead>
+    <tbody>
+      <tr><td>1.3 · 6.1</td><td>연습 과정에서 교수님을 중심으로 다시 짜인 구조(책가도, 노리개, 전모 여인)</td><td>9월 2일 회의</td><td>경과 서술이 실제와 맞는지</td></tr>
+      <tr><td>3.1</td><td>연소답청에서 폴리 배우가 "구도가 그림과 다르다"는 신호를 주는 장면을 교수님 제안으로 밝힘</td><td>'260913' 댓글</td><td>제안자 표기</td></tr>
+      <tr><td>3.2</td><td>월하정인 타블로를 선물을 건네기 직전의 순간에 맞추자는 2025년 판단</td><td>2025.8.30 메시지</td><td>인용 범위</td></tr>
+      <tr><td>3.3</td><td>단오풍정 봇짐 여인(새참 / 천 장사꾼 / 떡장수), 주유청강 세 쌍의 남녀</td><td>2025.8.28 댓글, 2025.8.31 메시지</td><td>해석을 나란히 적은 방식</td></tr>
+      <tr><td>4.1</td><td>2025 구성안의 '치마폭이 열렸다가 닫히듯이'를 네거티브 샘플의 사례로 다룸. 구성안 안에서는 제자리에 있던 문장이 대본으로 옮겨 오며 생긴 문제로 서술</td><td>2025 연출 구성안</td><td>이렇게 다뤄도 괜찮으신지</td></tr>
+      <tr><td>5.2.1 · 5.3</td><td>전모 여인을 앨리스의 토끼에 비유, 장마다 소녀의 변화를 가리키는 열쇠말</td><td>9월 2일 회의</td><td>교수님 설계로 밝힌 표현</td></tr>
+      <tr><td>6.3</td><td>"큐를 놓친 배우"가 담뱃대를 든 몸종으로, "마대를 든 스태프"가 뱃사공으로 서술된 과정</td><td>'260913' 댓글 원문 인용</td><td>댓글 직접 인용</td></tr>
+      <tr><td>6.4</td><td>간주 I~III의 등장, 9월 16일 프롤로그 순서, 영문판 반영</td><td>'260915', 9.13·9.17 메시지</td><td>간주의 출처, 영문 수정본</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="authors" class="band"><div class="wrap">
+  <h2>저자 구성은 세 가지 길이 있습니다</h2>
+  <p class="intro">교수님께서 연출 관점에서 하실 말씀이 많다면 B안이 자연스럽고, 한 편으로 묶는다면 A안에서 6장을 교수님 관점으로 보강하는 것이 가장 큰 변화입니다. 카드를 눌러 오늘 정한 안을 표시할 수 있습니다.</p>
+  <div class="opts">
+    <button class="opt" type="button" id="opt-a" data-opt="A" aria-pressed="false"><span class="tag">A</span><span class="h">한 편을 같이 쓰기</span>
+      <span class="p">김나영 1저자, 교수님 교신(또는 공동)저자. 교수님이 6장의 연습실 재구성 과정을 직접 보강합니다.</span>
+      <span class="p fit">바뀌는 곳: 초록, 2.4(연구자의 위치), 6장, 7장의 한계</span><span class="pick">오늘 정한 안</span></button>
+    <button class="opt" type="button" id="opt-b" data-opt="B" aria-pressed="false"><span class="tag">B</span><span class="h">두 편으로 나누기</span>
+      <span class="p">지금 원고는 대본 작법 논문으로, 교수님 주저자로 연출 방법 논문을 따로 씁니다. 타블로 비방·폴리·라이브 비주얼, 연습실에서 구조를 다시 짠 과정, 8개 전공 22명이 함께한 제작. 두 편이 서로 인용합니다.</span>
+      <span class="p fit">어울리는 경우: 연출 쪽 이야기가 많을 때</span><span class="pick">오늘 정한 안</span></button>
+    <button class="opt" type="button" id="opt-c" data-opt="C" aria-pressed="false"><span class="tag">C</span><span class="h">단독 저자에 감수</span>
+      <span class="p">김나영 단독 저자로 내고, 교수님은 자문과 감수를 맡아 감사의 글에 밝힙니다.</span>
+      <span class="p fit">어울리는 경우: 교수님 일정이 빠듯할 때</span><span class="pick">오늘 정한 안</span></button>
+  </div>
+  <div class="asks panel"><h3>여쭙고 싶은 것</h3><ul>
+    <li>이 작품으로 따로 쓰고 싶으신 글이 있는지, 있다면 어떤 주제인지</li>
+    <li>저자 순서와 교신저자</li>
+    <li>각자 맡을 부분과 마감</li>
+  </ul></div>
+</div></section>
+
+<section id="direction" class="band"><div class="wrap">
+  <h2>범위와 분량을 저자 구성에 맞춰 정합니다</h2>
+  <div class="two">
+    <div class="panel"><h3>다루는 범위</h3>
+      <p><b>가.</b> 지금처럼 2025 원점부터 기록 대본까지 모두 다룬다.</p>
+      <p><b>나.</b> 2026년 봄 사전 대본에 집중하고 6장을 줄인다. B안이라면 6장의 연습실 부분은 교수님 논문으로 넘어갈 수 있습니다.</p></div>
+    <div class="panel"><h3>분량과 제목</h3>
+      <p>지금 39쪽은 학술지 기준보다 깁니다. 분량 제한은 학술지마다 다르니(예: 서울대 「인문논총」은 200자 원고지 150매 원칙, 최대 180매) 투고처를 정한 뒤 부록 1.1~1.8 가운데 남길 것을 고릅니다.</p>
+      <p>제목 1안은 지금 제목, 2안은 「회화 기반 넌버벌 퍼포먼스 대본의 작성 및 개고 방법론」입니다.</p></div>
+  </div>
+</div></section>
+
+<section id="journals" class="band"><div class="wrap">
+  <h2>국내 등재지를 먼저, 해외는 그다음으로</h2>
+  <p class="intro">일정과 조건은 2026년 11월 22일에 학회 공지와 KCI 페이지에서 확인한 내용입니다. 투고 전에 다시 확인합니다.</p>
+  <div class="scroll"><table class="stack">
+    <thead><tr><th>학술지</th><th>맞는 점</th><th>일정·조건</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://ktsa.jams.or.kr/co/main/jmMain.kci">한국연극학</a></td><td>한국연극학회의 연극학 대표 학술지, 2009년 등재지 선정</td><td>연 3회(4월 30일, 8월 31일, 12월 31일) 발행. 정회원 투고. 마감일은 학회 공지 확인</td></tr>
+      <tr><td><a href="https://journal.kci.go.kr/kdrama/author/instruction">한국극예술연구</a></td><td>한국 극예술 관련 연구로 한정. 이 작품이 정확히 해당</td><td>마감 3월 31일·7월 31일·11월 30일, 발간 1월 31일·5월 31일·9월 30일. 정회원, 심사료 5만 원. 2027년 3월 31일 투고, 5월 31일 발간이 현실적</td></tr>
+      <tr><td><a href="https://journal.kci.go.kr/ksasa/author/instruction">미학예술학연구</a></td><td>미학 이론과 예술의 이론·실천을 함께 다룸. 그림을 공연으로 옮기는 문제를 미학 쪽으로 풀 때</td><td>연 3회(2월, 6월, 10월) 발행</td></tr>
+      <tr><td><a href="https://www.kci.go.kr/kciportal/po/search/poCitaView.kci?sereId=SER000010148">연극교육연구</a></td><td>B안에서 교수님 글이 학생 참여 제작을 다룬다면</td><td>KCI 등재</td></tr>
+      <tr><td><a href="https://uhpress.hawaii.edu/title/atj">Asian Theatre Journal</a></td><td>아시아 연극, 아시아와 서구 연극의 관계. La MaMa 초연과 잘 맞음</td><td>반년간. 논문 외에 창작·번역 희곡도 실음. 교수님 영어 대본에 해설을 붙이는 형태도 가능성</td></tr>
+      <tr><td><a href="https://www.tandfonline.com/journals/rstp20/about-this-journal">Studies in Theatre and Performance</a></td><td>실천에 기반한 연구, 대본과 실천 연구(PaR) 포트폴리오도 실음</td><td>논문 6,000~8,000단어. 오픈액세스만 출판(게재료 확인)</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="checks" class="band"><div class="wrap">
+  <h2>확인하고 동의받을 것</h2>
+  <p class="intro">회의하면서 하나씩 체크합니다. 체크 상태는 이 브라우저에만 저장됩니다.</p>
+  <ul class="checks" id="checklist">
+    <li><label><input type="checkbox" id="c1"><span>메시지 인용 동의<small>개인 교신 각주 10여 곳. 뜻을 바꾸지 않는 범위에서 풀어 쓰고, 연락처 같은 개인 정보는 넣지 않음</small></span></label></li>
+    <li><label><input type="checkbox" id="c2"><span>공유 문서 댓글 원문 인용<small>쌍검대무 "이미 자기 등장 큐를 놓친 배우가…" 댓글 한 건</small></span></label></li>
+    <li><label><input type="checkbox" id="c3"><span>2025 구성안 문장을 사례로 다루는 방식<small>4.1 네거티브 샘플의 출처를 구성안으로 밝힘</small></span></label></li>
+    <li><label><input type="checkbox" id="c4"><span>간주 I~III의 출처와 영문 수정본 파일<small>'260915'에서 처음 나타남. 월하정인 영문 수정본과 문장 대조(부록 1.7)</small></span></label></li>
+    <li><label><input type="checkbox" id="c5"><span>"연구자는 연습 과정에 상주하지 않았다"는 표현<small>2.4와 7장의 한계 서술</small></span></label></li>
+    <li><label><input type="checkbox" id="c6"><span>"8월 21일 출국 전 국내 시연"이라는 명칭<small>창작산실 지원서 표현과 맞추기</small></span></label></li>
+    <li><label><input type="checkbox" id="c7"><span>도판과 공연 사진<small>그림 1·2(간송미술관 소장) 사용 허가, 6장에 공연 사진이나 영상 캡처를 넣어도 되는지</small></span></label></li>
+    <li><label><input type="checkbox" id="c8"><span>9월 2일 회의 기록의 인용 범위<small>앨리스의 토끼 비유, 장별 열쇠말</small></span></label></li>
+  </ul>
+</div></section>
+
+<section id="next" class="band"><div class="wrap">
+  <h2>끝내기 전에 날짜를 정합니다</h2>
+  <div class="form">
+    <label for="f-due">다음 원고 마감<input type="date" id="f-due"></label>
+    <label for="f-how">원고 주고받는 방식<select id="f-how"><option value="">고르기</option><option>공유 문서(Google Docs)</option><option>메일로 docx</option><option>GitHub 저장소</option></select></label>
+    <label for="f-meet">다음 회의<input type="date" id="f-meet"></label>
+  </div>
+  <label for="f-memo" class="intro" style="display:block;margin:18px 0 0">회의 메모</label>
+  <textarea id="f-memo" placeholder="정한 것, 숙제, 교수님 말씀을 적어 둡니다"></textarea>
+  <div class="bar"><button class="b" type="button" id="copy">정리한 내용 복사</button><button class="b ghost" type="button" id="reset">이 페이지 기록 지우기</button><span id="status" role="status"></span></div>
+</div></section>
+
+<footer class="band"><div class="wrap">작성 2026년 11월 22일 · 김나영. 투고처 정보는 각 학회 공지와 KCI 페이지 기준이며, 투고 전에 다시 확인합니다.</div></footer>
+
+<script>
+{
+const KEY='maedeup-meeting-1129';
+let st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){st={}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+
+const M=[
+ {d:'2025.8',n:'구성안·쇼케이스 대본',p:0,k:'v'},
+ {d:'2025.9',n:'쇼케이스',p:0,k:'e'},
+ {d:'3.19',n:"'260319'",p:1,k:'v'},
+ {d:'3.23',n:"'260323'",p:1,k:'v'},
+ {d:'3.28',n:"'260328'",p:1,k:'v'},
+ {d:'4.4',n:"'260404' 2종",p:2,k:'d'},
+ {d:'4.6',n:"'260406'",p:3,k:'v'},
+ {d:'4.11',n:"'260411'",p:4,k:'v'},
+ {d:'8.21',n:'국내 시연',p:5,k:'e'},
+ {d:'9.13',n:"'260913'",p:6,k:'v'},
+ {d:'9.15',n:"'260915'",p:6,k:'v'},
+ {d:'9.17',n:"'260917'",p:6,k:'v'},
+ {d:'9.24~27',n:'La MaMa 초연',p:7,k:'t'}];
+const P=['원점','양식 확립','복수 버전','통합','검증·완성','연습·시연','기록','초연'];
+const s=document.getElementById('cord'),box=document.getElementById('cordfig');
+const knot=(x,y,i)=>`<g class="knot" style="animation-delay:${i*60}ms"><ellipse cx="${x}" cy="${y}" rx="8" ry="4.5" transform="rotate(45 ${x} ${y})" fill="none" stroke="var(--c-cord)" stroke-width="2.4"/><ellipse cx="${x}" cy="${y}" rx="8" ry="4.5" transform="rotate(-45 ${x} ${y})" fill="none" stroke="var(--c-cord)" stroke-width="2.4"/><circle cx="${x}" cy="${y}" r="2.6" fill="var(--c-cord)"/></g>`;
+const ev=(x,y,i)=>`<g class="knot" style="animation-delay:${i*60}ms"><circle cx="${x}" cy="${y}" r="11" fill="none" stroke="var(--c-ev)" stroke-width="1.5"/><circle cx="${x}" cy="${y}" r="6.5" fill="var(--c-ev)"/></g>`;
+const tassel=(x,y,len)=>{let l='';for(let j=-3;j<=3;j++)l+=`<path d="M${x+j*2.4} ${y+24}v${len-Math.abs(j)*3}" stroke="var(--c-ev)" stroke-width="1.6"/>`;return `<circle cx="${x}" cy="${y}" r="9" fill="none" stroke="var(--c-ev)" stroke-width="3"/><path d="M${x-7} ${y+12}h14l4 12h-22z" fill="var(--c-ev)"/>${l}`};
+const mark=(m,x,y,i)=>m.k==='e'?ev(x,y,i):m.k==='d'?knot(x-7,y,i)+knot(x+7,y,i):m.k==='t'?tassel(x,y,46):knot(x,y,i);
+const draw=()=>{
+  const W=s.clientWidth;let out='';
+  if(W>=760){
+    box.style.height='250px';
+    const H=250,L=36,R=56,cy=110,step=(W-L-R)/(M.length-1);
+    const pts=M.map((m,i)=>[L+i*step,cy+Math.sin(i*1.3)*5]);
+    let d=`M${L-30} ${cy}`;pts.forEach(([x,y],i)=>{const [px,py]=i?pts[i-1]:[L-30,cy];d+=` Q${(px+x)/2} ${py} ${x} ${y}`});
+    out+=`<path d="${d}" fill="none" stroke="var(--c-cord)" stroke-width="5" stroke-linecap="round" opacity=".9"/><path d="${d}" fill="none" stroke="var(--band, #22397a)" stroke-width="1.2" stroke-dasharray="3 5" opacity=".6"/>`;
+    const bx=(pts[1][0]+pts[2][0])/2;
+    out+=`<path d="M${bx-6} ${cy+12}l6 -24M${bx+2} ${cy+12}l6 -24" stroke="var(--c-sub)" stroke-width="2"/><text x="${bx}" y="${cy-46}" text-anchor="middle" font-size="13" fill="var(--c-sub)">6개월</text>`;
+    out+=`<text x="${L}" y="22" font-size="13" fill="var(--c-sub)">2025</text><text x="${pts[2][0]}" y="22" font-size="13" fill="var(--c-sub)" text-anchor="middle">2026</text>`;
+    M.forEach((m,i)=>{const [x,y]=pts[i];out+=mark(m,x,y,i);
+      const up=m.k==='t';
+      out+=`<text x="${x}" y="${y-24}" text-anchor="middle" font-size="14" font-weight="700" fill="var(--c-txt)">${m.d}</text>`;
+      if(up)out+=`<text x="${x}" y="${y-44}" text-anchor="end" font-size="14" fill="var(--c-ev)" dx="20">${m.n}</text>`;
+      else out+=`<text x="${x}" y="${y+(i%2?50:32)}" text-anchor="middle" font-size="13" fill="var(--c-sub)">${m.n}</text>`;});
+    let i=0;while(i<P.length-1){let j=i;const idx=M.map((m,k)=>m.p===i?k:-1).filter(k=>k>=0);if(!idx.length){i++;continue}
+      const x0=pts[idx[0]][0]-step*0.42,x1=pts[idx[idx.length-1]][0]+step*0.42,yb=cy+76;
+      out+=`<path d="M${x0+3} ${yb}h${x1-x0-6}" stroke="${i%2?'var(--c-ev)':'var(--c-cord)'}" stroke-width="3" opacity=".75"/><text x="${(x0+x1)/2}" y="${yb+22}" text-anchor="middle" font-size="13" fill="var(--c-txt)">${P[i]}</text>`;i=j+1;}
+  }else{
+    const rows=[];let last=-1;M.forEach((m,i)=>{if(m.p!==last){rows.push({h:P[m.p]});last=m.p}rows.push({m,i})});
+    const rh=34,yl=18+(rows.length-1)*rh,H=yl+64;box.style.height=H+'px';const x=26;
+    out+=`<path d="M${x} 6V${yl}" stroke="var(--c-cord)" stroke-width="5" stroke-linecap="round"/>`;
+    rows.forEach((r,k)=>{const y=18+k*rh;
+      if(r.h){out+=`<text x="${x+30}" y="${y+5}" font-size="13" fill="var(--c-ev)" font-weight="700">${r.h}</text>`;return}
+      const m=r.m;out+=m.k==='t'?tassel(x,y,30):mark(m,x,y,r.i);
+      out+=`<text x="${x+30}" y="${y+5}" font-size="14" fill="var(--c-txt)"><tspan font-weight="700">${m.d}</tspan><tspan fill="var(--c-sub)" dx="10">${m.n}</tspan></text>`;});
+  }
+  s.innerHTML=out;
+};
+const ro=new ResizeObserver(draw);ro.observe(box);
+
+const opts=[...document.querySelectorAll('.opt')];
+const paint=()=>opts.forEach(o=>o.setAttribute('aria-pressed',String(st.opt===o.dataset.opt)));
+opts.forEach(o=>o.addEventListener('click',()=>{st.opt=st.opt===o.dataset.opt?'':o.dataset.opt;paint();save()}));
+const boxes=[...document.querySelectorAll('#checklist input')];
+boxes.forEach(b=>{b.checked=!!(st.c&&st.c[b.id]);b.addEventListener('change',()=>{st.c=st.c||{};st.c[b.id]=b.checked;save()})});
+const fields=['f-due','f-how','f-meet','f-memo'].map(id=>document.getElementById(id));
+fields.forEach(f=>{if(st[f.id])f.value=st[f.id];f.addEventListener('input',()=>{st[f.id]=f.value;save()})});
+paint();
+const status=document.getElementById('status');
+document.getElementById('copy').addEventListener('click',async()=>{
+  const name={A:'A 한 편을 같이 쓰기',B:'B 두 편으로 나누기',C:'C 단독 저자에 감수'}[st.opt]||'미정';
+  const done=boxes.filter(b=>b.checked).map(b=>'- '+b.closest('label').querySelector('span').firstChild.textContent.trim());
+  const left=boxes.filter(b=>!b.checked).map(b=>'- '+b.closest('label').querySelector('span').firstChild.textContent.trim());
+  const txt=['〈매듭〉 논문 회의 정리 (2026.11.29)','','저자 구성: '+name,'','확인한 것',...(done.length?done:['- 없음']),'','남은 것',...(left.length?left:['- 없음']),'','다음 원고 마감: '+(fields[0].value||'미정'),'주고받는 방식: '+(fields[1].value||'미정'),'다음 회의: '+(fields[2].value||'미정'),'','메모',fields[3].value||'-'].join('\n');
+  try{await navigator.clipboard.writeText(txt);status.textContent='복사했어요. 메신저나 메일에 붙여 넣으세요.'}catch(e){fields[3].value=fields[3].value+'\n\n'+txt;status.textContent='복사가 막혀 있어 정리한 내용을 메모 칸 끝에 붙였어요.'}
+});
+let armed=false;const rb=document.getElementById('reset');
+rb.addEventListener('click',()=>{if(!armed){armed=true;rb.textContent='한 번 더 누르면 지워져요';setTimeout(()=>{armed=false;rb.textContent='이 페이지 기록 지우기'},4000);return}
+  st={};save();paint();boxes.forEach(b=>b.checked=false);fields.forEach(f=>f.value='');armed=false;rb.textContent='이 페이지 기록 지우기';status.textContent='기록을 지웠어요.'});
+}
+</script>
+</body>
+</html>
