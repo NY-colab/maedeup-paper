@@ -169,11 +169,20 @@ h3.sub{font-size:23px;margin:40px 0 14px}
 .case dl{margin:0;padding:4px 18px 18px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 12px;font-size:16px}
 .case dt{font-weight:700;color:var(--indigo)}
 .case dd{margin:0}
-.toc{margin-top:28px;font-size:16px;color:var(--muted)}
-.toc b{color:var(--ink);margin-right:8px}
 @media(max-width:900px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.flow{grid-template-columns:minmax(0,1fr);gap:0}.flow li{border-top:0;border-left:3px solid var(--indigo);padding:0 0 18px 18px}.flow li:not(:last-child)::after{top:auto;bottom:-2px;right:auto;left:-8.5px}}
 @media(max-width:760px){.cases{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.facts{grid-template-columns:minmax(0,1fr)}}
+.gloss{margin-top:22px}
+.gloss dl,.toc dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;font-size:16px}
+.gloss dt,.toc dt{font-weight:700;color:var(--indigo);white-space:nowrap}
+.gloss dd,.toc dd{margin:0}
+.toc{margin-top:28px}
+details.ex{margin-top:8px;font-size:15px}
+details.ex summary{cursor:pointer;color:var(--indigo);font-weight:500;min-height:32px;display:inline-flex;align-items:center}
+details.ex ul{margin:6px 0 0;padding-left:1.1em}
+details.ex li{margin-bottom:4px}
+details.ex p{margin:6px 0 0;color:var(--muted)}
+@media(max-width:600px){.gloss dl,.toc dl{grid-template-columns:minmax(0,1fr);gap:2px}.gloss dd,.toc dd{margin-bottom:10px}}
 footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
 @media(max-width:900px){.chg{grid-template-columns:repeat(2,minmax(0,1fr))}.opts{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:760px){.shelf{grid-template-columns:repeat(2,minmax(0,1fr))}.two,.form{grid-template-columns:minmax(0,1fr)}}
@@ -192,7 +201,7 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
   <div class="wrap">
     <div class="meta"><span><b>논문 회의</b> 2026년 11월 29일(일) 오후 9시, 화상 · 1시간</span><span>김지영 교수님 · 김나영</span></div>
     <h1>〈매듭〉 대본 작성 방법론 논문 회의 자료</h1>
-    <p class="lede">오늘은 <strong>저자 구성</strong>을 먼저 정하고, 그에 맞춰 <strong>자료 범위</strong>, <strong>논문 방향</strong>, <strong>투고처</strong>를 차례로 정했으면 합니다. 이어서 교수님께 확인받을 사실관계와 인용 동의 열여섯 건을 함께 봐 주세요. 논문이 무엇을 다루는지는 <strong>0. 논문 개요</strong>에 그림과 함께 정리했습니다.</p>
+    <p class="lede">오늘은 <strong>저자 구성</strong>을 먼저 정하고, 그에 맞춰 <strong>자료 범위</strong>, <strong>투고처</strong>, <strong>논문 방향</strong>을 차례로 정했으면 합니다. 이어서 교수님께 확인받을 사실관계와 인용 동의 열일곱 건을 함께 봐 주세요. 논문이 무엇을 다루는지는 <strong>0. 논문 개요</strong>에 그림과 함께 정리했습니다.</p>
     <p class="paper">「조선 풍속화의 시각 정보를 넌버벌 퍼포먼스 서사로 변환하는 대본 작성 방법론 연구: ⟨매듭: 신윤복을 엮다⟩의 개고 과정을 중심으로」 보충 초안 · 39쪽 · 각주 51개</p>
     <div class="fig" id="cordfig" role="img" aria-label="대본 개고 이력: 2025년 원점, 2026년 봄 양식 확립·복수 버전·통합·검증, 연습과 시연, 9월 기록, 9월 24~27일 La MaMa 초연"><svg id="cord"></svg></div>
     <details class="tl"><summary>버전별 날짜 펼치기</summary><ol class="tlgrid" id="tlgrid"></ol></details>
@@ -200,21 +209,21 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
 </header>
 
 <nav class="nav" aria-label="안건"><div class="scroll">
-  <a href="#agenda">순서</a><a href="#outline">0 논문 개요</a><a href="#authors">1 저자 구성</a><a href="#scope">2 자료 범위</a><a href="#direction">3 논문 방향</a><a href="#journals">4 투고처</a><a href="#checks">5 확인·동의</a><a href="#next">6 다음 단계</a>
+  <a href="#agenda">순서</a><a href="#outline">0 논문 개요</a><a href="#authors">1 저자 구성</a><a href="#scope">2 자료 범위</a><a href="#journals">3 투고처</a><a href="#direction">4 논문 방향</a><a href="#checks">5 확인·동의</a><a href="#next">6 다음 단계</a>
 </div></nav>
 
 <div class="band" id="agenda"><div class="wrap">
   <div class="shelf">
     <a class="cell ref" href="#outline"><span class="top"><span>0 · 회의 전</span><span class="kind rd">읽기</span></span><span class="name">논문 개요</span><small>연구 질문과 원칙, 원화 사례 네 가지</small><b class="st">회의 전에 읽어 주세요</b></a>
     <a class="cell" href="#authors"><span class="top"><span>1 · 15분</span><span class="kind dec">결정</span></span><span class="name">저자 구성</span><small>한 편을 같이 쓸지, 두 편으로 나눌지, 단독에 감수로 할지</small><b class="st" data-st="authors">미정</b></a>
-    <a class="cell" href="#scope"><span class="top"><span>2 · 10분</span><span class="kind dec">결정</span></span><span class="name">자료 범위</span><small>분석에 쓰는 자료와 쓰지 않는 자료의 경계</small><b class="st" data-st="data">미정</b></a>
-    <a class="cell" href="#direction"><span class="top"><span>3 · 10분</span><span class="kind dec">결정</span></span><span class="name">논문 방향</span><small>다루는 시기, 분량, 제목</small><b class="st" data-st="direction">미정</b></a>
-    <a class="cell" href="#journals"><span class="top"><span>4 · 5분</span><span class="kind dec">결정</span></span><span class="name">투고처</span><small>국내 등재지 넷, 해외 둘 가운데 1순위</small><b class="st" data-st="journal">미정</b></a>
-    <a class="cell" href="#checks"><span class="top"><span>5 · 15분</span><span class="kind chk">확인</span></span><span class="name">확인·동의</span><small>인용 동의 4, 사실 확인 8, 자료 요청 4</small><b class="st" data-st="checks">0/16 확인</b></a>
+    <a class="cell" href="#scope"><span class="top"><span>2 · 10분</span><span class="kind dec">결정</span></span><span class="name">자료 범위</span><small>분석 근거로 삼는 자료와 9월 기록 단계의 분석 단위</small><b class="st" data-st="data">미정</b></a>
+    <a class="cell" href="#journals"><span class="top"><span>3 · 5분</span><span class="kind dec">결정</span></span><span class="name">투고처</span><small>국내 등재지 넷, 해외 둘 가운데 1순위</small><b class="st" data-st="journal">미정</b></a>
+    <a class="cell" href="#direction"><span class="top"><span>4 · 10분</span><span class="kind dec">결정</span></span><span class="name">논문 방향</span><small>다루는 시기, 분량, 제목</small><b class="st" data-st="direction">미정</b></a>
+    <a class="cell" href="#checks"><span class="top"><span>5 · 15분</span><span class="kind chk">확인</span></span><span class="name">확인·동의</span><small>인용 동의 4, 사실 확인 10, 자료 요청 3</small><b class="st" data-st="checks">0/17 확인</b></a>
     <a class="cell" href="#next"><span class="top"><span>6 · 5분</span><span class="kind dec">결정</span></span><span class="name">다음 단계</span><small>원고 마감, 주고받는 방식, 다음 회의</small><b class="st" data-st="next">미정</b></a>
-    <div class="cell sum"><span class="top"><span>합계 1시간</span></span><span class="big" data-st="sum">0/5</span><small>정한 안건 수</small></div>
+    <div class="cell sum"><span class="top"><span>합계 1시간</span></span><span class="big" data-st="sum">0/5</span><small>결정 안건(1·2·3·4·6번) 가운데 정한 수</small></div>
   </div>
-  <p class="shelf-note">시간은 제안입니다. 아래에서 고르거나 체크하면 칸의 상태가 바뀝니다. 원고 PDF는 회의 전에 따로 보내드립니다.</p>
+  <p class="shelf-note">회의 때는 제가 화면을 공유하고 고르기·체크·메모를 맡겠습니다. 시간은 제안입니다. 원고 PDF는 회의 전에 따로 보내드리며, 아래 장·절 번호는 PDF와 함께 보시면 찾기 쉽습니다.</p>
 </div></div>
 
 <section id="outline" class="band"><div class="wrap">
@@ -222,15 +231,25 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
   <p class="thesis">신윤복의 풍속화를 <strong>넌버벌 퍼포먼스 대본</strong>으로 옮기는 작법을 다룬 논문입니다. 〈매듭〉 대본이 2025 쇼케이스부터 La MaMa 초연까지 어떻게 고쳐졌는지 버전끼리 대조하고, 그 과정에서 쓴 방법을 <strong>원칙 다섯 가지</strong>로 정리했습니다.</p>
   <dl class="facts">
     <div><dt>연구 방법</dt><dd>실천 주도 연구(practice-led research) 관점의 질적 단일 사례연구. 버전 간 텍스트 대조</dd></div>
-    <div><dt>분석 자료</dt><dd>2025 쇼케이스 대본, 사전 대본 일곱 버전, 최종 기록 대본 '260917'과 그에 이르는 수정 기록</dd></div>
-    <div><dt>집중 대조</dt><dd>전환점이 된 네 텍스트: '260328', '260404' 2종, '260411'</dd></div>
+    <div><dt>분석 자료</dt><dd>2025 쇼케이스 대본, 2026년 봄 사전 대본 일곱 버전, 최종 기록 대본('260917')과 그에 이르는 수정 기록</dd></div>
+    <div><dt>집중 대조</dt><dd>전환점이 된 네 텍스트: 3월 28일본('260328'), 4월 4일본 2종('260404'), 4월 11일본('260411')</dd></div>
     <div><dt>밝혀 둔 한계</dt><dd>단일 작품 사례, 연구자가 곧 작가라는 이중 위치, 연습 과정을 사후 기록으로 재구성</dd></div>
   </dl>
+
+  <div class="gloss panel"><h3>이 자료에서 쓰는 말</h3><dl>
+    <dt>버전 이름</dt><dd>대본은 작성을 마친 날짜로 부릅니다. '260328'은 2026년 3월 28일 수정본, '260917'은 9월 17일에 확정한 최종 기록 대본(라마마 아카이빙용)입니다.</dd>
+    <dt>사전 대본</dt><dd>연습에 들어가기 전에 쓴 대본. '260319'부터 '260411'까지 일곱 버전이 연습의 출발점이었습니다.</dd>
+    <dt>기록 대본</dt><dd>상연된 무대를 다시 글로 옮긴 대본('260913'~'260917'). 영어 대본의 바탕이 되었습니다.</dd>
+    <dt>스토리 설계도</dt><dd>안무나 연출 지시 대신 인물의 감정·관계·사건을 적고, 구현 방식은 연출과 퍼포머에게 열어 두는 대본.</dd>
+    <dt>네거티브 샘플</dt><dd>대본에 쓰지 않기로 한 표현을 실제 문장 그대로 적어 둔 목록. 문장의 좋고 나쁨이 아니라 대본 문체에 맞는지를 가리는 기준입니다.</dd>
+    <dt>원점</dt><dd>2025 쇼케이스 단계. 봄 대본에서 빠졌던 2025년 요소가 기록 대본에 다시 나타난 것을 '원점의 회귀'라고 씁니다.</dd>
+    <dt>감정 아크</dt><dd>오늘의 소녀의 감정이 처음부터 끝까지 이어지는 흐름.</dd>
+  </dl></div>
 
   <h3 class="sub">장별 분석 순서</h3>
   <ol class="flow">
     <li><span class="ch">3장</span><b>원화를 확인하고 항목으로 적기</b><span>인물 수·공간·소품의 귀속을 원화에서 확인해 사실과 해석을 나눠 기록</span></li>
-    <li><span class="ch">4장</span><b>스토리 설계도의 문체</b><span>안무 지시가 아니라 서사적 행동을 쓰고, 버린 문장은 네거티브 샘플로 남김</span></li>
+    <li><span class="ch">4장</span><b>스토리 설계도의 문체</b><span>안무 지시가 아니라 서사적 행동을 쓰고, 대본 문체에 맞지 않는 문장은 실제 예로 적어 다음 개고의 기준으로 삼기</span></li>
     <li><span class="ch">5.1 · 5.2</span><b>두 버전을 함께 쓰고 합치기</b><span>장면의 기능은 고정하고 그것을 맡는 인물만 갈라 쓴 뒤 하나로 통합</span></li>
     <li><span class="ch">5.3</span><b>감정선은 마지막에 정리</b><span>장면마다 따로 쓴 감정 서술을 구조가 정해진 뒤 오늘의 소녀 한 사람의 흐름으로 맞추기</span></li>
     <li><span class="ch">6장</span><b>상연된 무대를 다시 쓰기</b><span>연습실의 요청을 그림 세계 안의 동기로 옮기고, 상연 순서·번역과 맞추기</span></li>
@@ -241,7 +260,7 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
     <thead><tr><th>장</th><th>연구 질문</th><th>결론의 원칙</th></tr></thead>
     <tbody>
       <tr><td class="sec">3장</td><td>풍속화의 시각 정보(인물 수, 배경, 소품, 구도)를 대본의 서사 정보(감정, 관계, 사건)로 옮길 때 지킬 원칙은 무엇인가</td><td><b>원화 정밀 확인과 시각 정보의 항목화.</b> 사실과 해석을 나누어 기록하고, 원화와 다르게 쓸 때는 무엇을 바꾸고 지켰는지 밝힌다</td></tr>
-      <tr><td class="sec">4장</td><td>스토리 설계도로서 넌버벌 대본의 문체는 어떻게 규정되고, 개고 동안 어떻게 유지되는가</td><td><b>창작 메모와 네거티브 샘플.</b> 실제로 대본에 살아남았던 문장을 금지의 예로 적어 둔다</td></tr>
+      <tr><td class="sec">4장</td><td>스토리 설계도로서 넌버벌 대본의 문체는 어떻게 규정되고, 개고 동안 어떻게 유지되는가</td><td><b>창작 메모와 네거티브 샘플.</b> 실제로 대본에 남아 있던 문장을 '대본 문체에 맞지 않는 예'로 적어 둔다</td></tr>
       <tr><td class="sec">5.1 · 5.2</td><td>그림 순서와 인물 구성이 다른 복수 버전을 함께 쓸 때 무엇을 고정하고 무엇을 나누는가</td><td><b>복수 버전의 고정과 분기.</b> 장면의 기능은 고정하고 인물 배치만 나눈다</td></tr>
       <tr><td class="sec">5.3</td><td>장면별 감정 서술은 어떻게 전체 감정 아크로 엮이는가</td><td><b>감정 아크의 후행 통합.</b> 구조가 정해진 뒤에 아크를 엮는다</td></tr>
       <tr><td class="sec">6장</td><td>연습과 상연을 거친 작품을 다시 대본으로 옮길 때 서술 기준은 어떻게 달라지고, 연출의 요청은 어떻게 대본의 언어가 되는가</td><td><b>기록 대본의 서술 기준.</b> 무대의 사건을 그림 세계 안의 동기로 쓰고, 상연 순서와 번역본에 맞춘다</td></tr>
@@ -261,32 +280,40 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
       <img src="img/wolha.jpg" width="1400" height="1050" loading="lazy" alt="월하정인: 초승달 아래 담장 골목에서 쓰개치마를 쓴 여인과 등불을 든 선비가 함께 서 있다">
       <figcaption><span class="ch">3.2 · 그림 2</span><b>월하정인</b>등불은 누구 손에 있나</figcaption>
       <dl><dt>원화</dt><dd>등불(초롱)을 든 사람은 선비. 다른 손은 옷 안에 있고, 여인은 턱 아래에서 쓰개치마를 여민다.</dd>
-      <dt>대본</dt><dd>등불은 원화대로 선비가 든다('260328'에서만 서술에서 빠졌다). 타블로는 2025년 교수님 제안대로 선물을 건네기 직전의 순간에 맞췄다. 최종 기록 대본에서 선비는 등불 빛으로 길을 살피다 여인을 발견한다.</dd></dl>
+      <dt>대본</dt><dd>등불은 원화대로 선비가 든다('260328'에서만 서술에서 빠졌다). 7월 원고는 이를 '원화와 달리 선비에게 옮긴 변형'이라고 잘못 적어, 이번에 바로잡았다. 타블로는 2025년 교수님 제안대로 선물을 건네기 직전의 순간에 맞췄다. 최종 기록 대본에서 선비는 등불 빛으로 길을 살피다 여인을 발견한다.</dd></dl>
     </figure>
     <figure class="case">
       <img src="img/juyu.jpg" width="600" height="486" loading="lazy" alt="주유청강: 차일을 친 배 위에서 갓 쓴 남자들과 여인들이 뱃놀이를 하고, 젊은 남자가 대금을 분다">
       <figcaption><span class="ch">3.3 · 6.3</span><b>주유청강</b>누가 누구와 짝인가</figcaption>
       <dl><dt>원화</dt><dd>차일을 친 배 위의 뱃놀이. 왼쪽 끝에 삿대를 든 사공이 있다.</dd>
-      <dt>대본</dt><dd>인물 수와 자세는 버전마다 같았고, 누가 누구와 짝인지만 달랐다. 최종 대본은 교수님 요청대로 세 쌍의 남녀와 대금 연주자로 묶었다. 기록 대본에서는 연습실에서 생긴 "마대를 든 스태프"를 노 젓는 뱃사공으로 고쳐 썼다.</dd></dl>
+      <dt>대본</dt><dd>인물 수와 자세는 버전마다 같았고, 누가 누구와 짝인지만 달랐다. 최종 기록 대본은 교수님 요청대로 세 쌍의 남녀와 대금 연주자로 묶었고, 연습실에서 생긴 "마대를 든 스태프"를 노 젓는 뱃사공으로 고쳐 썼다.</dd></dl>
     </figure>
     <figure class="case">
       <img src="img/wolya.jpg" width="600" height="482" loading="lazy" alt="월야밀회: 보름달 아래 담장 모퉁이에서 남녀가 끌어안고, 조금 떨어진 곳에서 한 여인이 이를 지켜본다">
       <figcaption><span class="ch">5.1 · 6.2</span><b>월야밀회</b>지켜보는 여인을 어떻게 읽을까</figcaption>
       <dl><dt>원화</dt><dd>달밤 담장 모퉁이에서 만나는 남녀와, 떨어져서 이를 지켜보는 여인.</dd>
-      <dt>대본</dt><dd>2025년에 지켜보는 여인을 두 가지로 읽은 판본(염탐 / 망보기)을 나란히 써서 연습실에서 골랐다. 2026년에 두 버전을 함께 쓴 방식이 여기서 시작됐다. 봄 대본에서 빠졌던 2025년의 설정은 기록 대본에서 되돌아온다.</dd></dl>
+      <dt>대본</dt><dd>2025년에 지켜보는 여인을 두 가지로 읽은 판본(염탐 / 망보기)을 나란히 써서 연습실에서 골랐다. 2026년에 두 버전을 함께 쓴 방식이 여기서 시작됐다. 2025년에 정한 '군관의 바람' 설정(지켜보던 여인이 군관의 연인)은 봄 대본에서 빠졌다가 최종 기록 대본에서 되돌아온다.</dd></dl>
     </figure>
   </div>
 
   <h3 class="sub">7월 원고에서 바뀐 점</h3>
   <div class="chg">
-    <div><b>범위를 넓혔습니다</b><p>7월 원고는 '260411'에서 멈췄는데, 2025 쇼케이스(원점)부터 2026년 9월 기록 대본까지로 넓혔습니다.</p></div>
-    <div><b>6장 기록 대본을 새로 썼습니다</b><p>6.1~6.4절 제목: 연습실을 거친 대본, 원점의 회귀, 연출의 언어에서 서사의 언어로, 기록 대본의 서술 기준(표 3).</p></div>
-    <div><b>사실관계를 바로잡았습니다</b><p>월하정인에서 등불을 든 사람은 선비라는 점(그림 2 추가), '치마폭…' 문장의 출처, '쌍륙삼매' 표기.</p></div>
+    <div><b>범위를 넓혔습니다</b><p>7월 원고는 4월 11일본('260411')에서 멈췄는데, 2025 쇼케이스(원점)부터 2026년 9월 기록 대본까지로 넓혔습니다. 최종 범위는 4번 안건에서 정합니다.</p></div>
+    <div><b>6장 기록 대본을 새로 썼습니다</b><p>연습실을 거쳐 바뀐 대본(6.1), 2025년 요소가 되돌아온 양상(6.2), 배우·스태프·큐 같은 무대 실무 지시를 그림 속 인물의 행동으로 옮겨 적은 과정(6.3), 기록 대본의 서술 기준(6.4, 표 3).</p></div>
+    <div><b>사실관계를 바로잡았습니다</b><p>월하정인 등불을 '원화와 달리 선비에게 옮겼다'고 쓴 것을 '원화에서도 선비가 든다'로(그림 2 추가), '치마폭…' 문장을 작가 문장으로 쓴 것을 2025 구성안 문장으로, '쌍육삼매' 표기를 '쌍륙삼매'로.</p></div>
     <div><b>공연 시점</b><p>La MaMa 초연(2026년 9월 24~27일, The Downstairs)을 과거형으로, 2025년은 학내 쇼케이스로 정리했습니다.</p></div>
-    <div><b>부록 1.7 댓글 반영표</b><p>'260913'·'260915' 댓글 21건 대조. 교수님 요청 20건 중 17건 반영, 3건은 일부 반영 또는 대조가 남음.</p></div>
+    <div><b>부록 1.7 댓글 반영표</b><p>9월 공유 문서 댓글 21건(교수님 20건, 작가 메모 1건) 대조. 교수님 요청 20건 중 17건 반영. 일부만 반영된 3건은 월야밀회 호루라기 소리, 연소답청 '맞았다' 신호, 월하정인 영문 수정본 대조.</p></div>
     <div><b>부록 1.8 세 시기 대조</b><p>2025 쇼케이스 대본, '260411', '260917'의 장 순서와 핵심 요소.</p></div>
   </div>
-  <p class="toc"><b>논문 구성</b> 초록 · 1장 서론(배경, 장르 특수성, 작품, 미술사적 이해, 선행연구, 연구 질문) · 2장 연구 방법(원점과 여섯 시기, 대조 절차, 연구자의 위치) · 3~6장 분석 · 7장 결론 · 부록 1 대조표 여덟 · 부록 2 창작 기준 문서 발췌</p>
+  <div class="toc panel"><h3>논문 구성(장·절 번호)</h3><dl>
+    <dt>1장 서론</dt><dd>1.1 연구 배경 및 목적 · 1.2 넌버벌 퍼포먼스 대본의 장르적 특수성 · 1.3 연구 대상 · 1.4 원작에 대한 미술사적 이해 · 1.5 선행연구 · 1.6 연구 질문</dd>
+    <dt>2장 연구 방법</dt><dd>2.1 개고 과정의 전체 구조와 분석 대상 · 2.2 창작 기준 문서의 구축 · 2.3 버전 간 텍스트 대조 절차 · 2.4 연구자의 위치</dd>
+    <dt>3장 시각 정보 변환</dt><dd>3.1 쌍륙삼매: 등장 순서 · 3.2 월하정인과 쌍륙삼매: 원화의 기록과 극적 변형 · 3.3 시각 정보의 항목화</dd>
+    <dt>4장 문체</dt><dd>4.1 연출 지시서처럼 쓰지 않기와 네거티브 샘플 · 4.2 필체 원칙 · 4.3 기물 명칭과 표기</dd>
+    <dt>5장 개고 과정</dt><dd>5.1 복수 버전의 분기 설계 · 5.2 통합 개고와 텍스트 검증(5.2.1 전모 소녀로의 명칭 교체, 5.2.2 쌍륙삼매 표기) · 5.3 감정 아크</dd>
+    <dt>6장 기록 대본</dt><dd>6.1 연습실을 거친 대본 · 6.2 원점의 회귀 · 6.3 연출의 언어에서 서사의 언어로 · 6.4 기록 대본의 서술 기준</dd>
+    <dt>7장 · 부록</dt><dd>7장 결론 · 부록 1 버전 간 대조표(1.1~1.8) · 부록 2 창작 기준 문서 발췌</dd>
+  </dl></div>
 </div></section>
 
 <section id="authors" class="band"><div class="wrap">
@@ -294,18 +321,18 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
   <p class="intro">연출 쪽으로 하실 말씀이 많으면 B안이 맞고, 한 편으로 묶으면(A안) 6장을 교수님 관점으로 보강하는 일이 가장 큽니다. 카드를 눌러 오늘 정한 안을 표시할 수 있습니다.</p>
   <div class="opts">
     <button class="opt" type="button" data-g="authors" data-v="A" data-label="A 한 편을 같이 쓰기" aria-pressed="false"><span class="tag">A</span><span class="h">한 편을 같이 쓰기</span>
-      <span class="p">김나영 1저자, 교수님 교신(또는 공동)저자. 교수님이 6장의 연습실 재구성 과정을 직접 보강합니다.</span>
+      <span class="p">김나영 1저자, 교수님 공동저자(교신저자 여부는 오늘 협의). 교수님이 6장의 연습실 재구성 과정을 직접 보강합니다.</span>
       <span class="p fit">바뀌는 곳: 초록, 2.4(연구자의 위치), 6장, 7장의 한계</span>
-      <span class="p warn"><b>2.4의 근거가 달라집니다.</b> 지금은 교수님의 댓글과 메시지를 연구자 바깥의 기록으로 보고, 연구자이자 작가라는 이중 위치의 한계를 이것으로 보완한다고 씁니다. 교수님이 저자가 되시면 이 기록을 바깥 기록으로 볼 수 없으니, 2.4와 7장의 한계 서술을 다른 근거로 다시 써야 합니다.</span>
+      <span class="p warn"><b>2.4(연구자의 위치)는 이렇게 바뀝니다.</b> 지금은 작가 한 사람의 시선을 교수님의 댓글과 메시지로 보완한다고 씁니다. 함께 쓰게 되면 작가와 연출자가 개고 과정을 같이 돌아보는 방식으로 2.4와 7장의 한계 서술을 다시 씁니다.</span>
       <span class="pick">오늘 정한 안</span></button>
     <button class="opt" type="button" data-g="authors" data-v="B" data-label="B 두 편으로 나누기" aria-pressed="false"><span class="tag">B</span><span class="h">두 편으로 나누기</span>
-      <span class="p">지금 원고는 대본 작법 논문으로, 교수님 주저자로 연출 방법 논문을 따로 씁니다. 타블로 비방·폴리·라이브 비주얼, 연습실에서 구조를 다시 짠 과정, 8개 전공 22명이 함께한 제작. 두 편이 서로 인용합니다.</span>
+      <span class="p">지금 원고는 대본 작법 논문으로 두고, 교수님 주저자로 연출 쪽 논문을 따로 씁니다. 주제는 교수님이 정하시되, 예를 들면 타블로 비방·폴리·라이브 비주얼, 연습실에서 구조를 다시 짠 과정, 8개 전공 22명이 함께한 제작 같은 것들입니다. 두 편이 서로 인용합니다.</span>
       <span class="p fit">어울리는 경우: 연출 쪽 이야기가 많을 때</span>
       <span class="p keep">2.4의 근거: 그대로 유지(교수님은 이 논문의 저자가 아님)</span>
       <span class="pick">오늘 정한 안</span></button>
     <button class="opt" type="button" data-g="authors" data-v="C" data-label="C 단독 저자에 감수" aria-pressed="false"><span class="tag">C</span><span class="h">단독 저자에 감수</span>
       <span class="p">김나영 단독 저자로 내고, 교수님은 자문과 감수를 맡아 감사의 글에 밝힙니다.</span>
-      <span class="p fit">어울리는 경우: 교수님 일정이 빠듯할 때</span>
+      <span class="p fit">어울리는 경우: 대본 작법 논문 한 편으로 두고, 교수님은 검토로 참여하실 때</span>
       <span class="p keep">2.4의 근거: 그대로 유지</span>
       <span class="pick">오늘 정한 안</span></button>
   </div>
@@ -317,47 +344,23 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
 </div></section>
 
 <section id="scope" class="band"><div class="wrap">
-  <h2>2. 분석에 쓰는 자료와 쓰지 않는 자료</h2>
-  <p class="intro">공동저자는 논문 전체를 같이 책임지니, 각 버전이 어떻게 만들어졌는지 오늘 함께 정리해 두고 싶습니다. 이 논문은 사람이 쓴 작업만 분석합니다.</p>
-  <div class="two">
-    <div class="panel"><h3>분석에 쓰는 자료</h3><ul>
-      <li>2025 쇼케이스: 교수님 구성안, 2025 대본, 0825·0826 장면 초안과 댓글</li>
-      <li>2026년 봄 사전 대본 일곱 버전('260319'~'260411')과 2026년 3월 연출부 메모</li>
-      <li>9월 2일 회의 기록, 교수님 댓글과 메시지(인용 동의를 받는다는 전제)</li>
+  <h2>2. 분석에 쓰는 자료</h2>
+  <p class="intro">논문이 어떤 자료를 근거로 삼는지 오늘 함께 확인하고 싶습니다.</p>
+  <div class="panel"><h3>분석에 쓰는 자료</h3><ul>
+      <li>2025 쇼케이스: 교수님 연출 구성안, 2025 쇼케이스 대본, 8월 25·26일 장면 초안(월야밀회·월하정인)과 댓글</li>
+      <li>2026년 봄 사전 대본 일곱 버전(3월 19일 '260319'부터 4월 11일 '260411'까지)과 2026년 3월 연출부 메모</li>
+      <li>9월 2일 연출 회의 기록, 교수님 댓글과 메시지(인용 동의를 받는다는 전제)</li>
       <li>9월 5~17일 공유 문서에서 교수님과 제가 직접 고친 내용과 댓글</li>
     </ul></div>
-    <div class="panel"><h3>분석 근거에서 빼는 자료</h3><ul>
-      <li>'260823' 쇼케이스 영상 분석, 구성안 공연반영본</li>
-      <li>'[260826]' 대본</li>
-      <li>'260902' 대본 수정 계획과 수정본</li>
-    </ul><p style="margin:12px 0 0">이 세 자료는 제가 AI 도구(Claude)와 함께 만든 분석과 초안이라 근거에서 뺐습니다. 저장소에도 넣지 않았습니다.</p></div>
-  </div>
-  <div class="note"><p><b>그래서 9월 기록 단계는 이렇게 다룹니다.</b> '260913'의 첫 본문은 '260902 수정본'을 바탕으로 했습니다. 9월 분석 단위는 9월 5~17일에 교수님과 제가 바꾼 내용과 댓글로 잡았습니다. '260913'·'260917' 본문의 문장은 작가의 문장 사례로 인용하지 않고, "최종 기록 대본에서 이 인물은 ~로 서술된다"처럼 상태만 씁니다.</p></div>
+  <div class="note"><p><b>9월 기록 단계는 이렇게 다룹니다.</b> 9월 5~17일에 공유 문서에서 교수님과 제가 고친 내용과 댓글을 분석 단위로 삼습니다. 최종 기록 대본('260917')은 장면이 어떻게 서술되는지 상태를 적는 데 쓰고, 작가 개인의 문장 사례로는 인용하지 않습니다.</p></div>
   <div class="opts two-up" style="margin-top:22px;max-width:720px">
-    <button class="opt sm" type="button" data-g="data" data-v="ok" data-label="이 경계로 진행" aria-pressed="false"><span class="h">이 경계로 진행</span><span class="p fit">위 목록 그대로</span><span class="pick">오늘 정한 안</span></button>
+    <button class="opt sm" type="button" data-g="data" data-v="ok" data-label="이 범위로 진행" aria-pressed="false"><span class="h">이 범위로 진행</span><span class="p fit">위 목록 그대로</span><span class="pick">오늘 정한 안</span></button>
     <button class="opt sm" type="button" data-g="data" data-v="adjust" data-label="조정 필요(메모 참고)" aria-pressed="false"><span class="h">조정 필요</span><span class="p fit">바꿀 점은 회의 메모에</span><span class="pick">오늘 정한 안</span></button>
   </div>
 </div></section>
 
-<section id="direction" class="band"><div class="wrap">
-  <h2>3. 다루는 시기, 분량, 제목</h2>
-  <div class="two">
-    <div class="panel"><h3>다루는 시기</h3>
-      <div class="opts" style="grid-template-columns:minmax(0,1fr)">
-        <button class="opt sm" type="button" data-g="range" data-v="ga" data-label="가. 2025 원점부터 기록 대본까지" aria-pressed="false"><span class="tag">가</span><span class="p">지금처럼 2025 원점부터 9월 기록 대본까지 모두 다룬다.</span><span class="pick">오늘 정한 안</span></button>
-        <button class="opt sm" type="button" data-g="range" data-v="na" data-label="나. 2026년 봄 사전 대본 중심, 6장 축소" aria-pressed="false"><span class="tag">나</span><span class="p">2026년 봄 사전 대본에 집중하고 6장을 줄인다. B안이라면 6장의 연습실 부분은 교수님 논문으로 넘어갈 수 있습니다.</span><span class="pick">오늘 정한 안</span></button>
-      </div></div>
-    <div class="panel"><h3>분량과 제목</h3>
-      <p>지금 39쪽은 학술지 기준보다 깁니다. 예를 들어 「한국극예술연구」는 200자 원고지 150매 이내가 원칙입니다. 투고처를 정한 뒤 부록 1.1~1.8 가운데 남길 것을 고릅니다.</p>
-      <div class="opts" style="grid-template-columns:minmax(0,1fr)">
-        <button class="opt sm" type="button" data-g="title" data-v="1" data-label="1안 (지금 제목)" aria-pressed="false"><span class="tag">1안</span><span class="p">지금 제목 그대로</span><span class="pick">오늘 정한 안</span></button>
-        <button class="opt sm" type="button" data-g="title" data-v="2" data-label="2안 「회화 기반 넌버벌 퍼포먼스 대본의 작성 및 개고 방법론」" aria-pressed="false"><span class="tag">2안</span><span class="p">「회화 기반 넌버벌 퍼포먼스 대본의 작성 및 개고 방법론」</span><span class="pick">오늘 정한 안</span></button>
-      </div></div>
-  </div>
-</div></section>
-
 <section id="journals" class="band"><div class="wrap">
-  <h2>4. 투고처 후보(국내 등재지 먼저)</h2>
+  <h2>3. 투고처 후보(국내 등재지 먼저)</h2>
   <p class="intro">일정과 조건은 2026년 11월 22일에 각 학회 투고 규정과 KCI 페이지에서 확인했습니다. '확인 필요'로 적은 칸은 투고 전에 규정 파일이나 학회 공지를 다시 봅니다.</p>
   <div class="scroll"><table class="stack jt">
     <thead><tr><th>1순위</th><th>학술지와 맞는 점</th><th>분량</th><th>일정·자격</th></tr></thead>
@@ -366,14 +369,32 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
       <tr><td><button type="button" class="pj" data-g="journal" data-v="kdrama" data-label="한국극예술연구" aria-pressed="false" aria-label="한국극예술연구를 1순위로"></button></td><td class="sec"><a href="https://journal.kci.go.kr/kdrama/author/instruction">한국극예술연구</a><small class="fit">한국 극예술 관련 연구로 한정. 이 작품이 정확히 해당</small></td><td>200자 원고지 150매 이내 원칙. 국문초록 800자, 영문초록 500단어 이내</td><td>마감 3월 31일·7월 31일·11월 30일, 발간 1월 31일·5월 31일·9월 30일. 정회원 한정, 심사료 5만 원. <b>11월 30일 마감은 회의 다음 날이라 이번 회차는 건너뜁니다.</b> 2027년 3월 31일 투고, 5월 31일 발간이 현실적</td></tr>
       <tr><td><button type="button" class="pj" data-g="journal" data-v="ksasa" data-label="미학예술학연구" aria-pressed="false" aria-label="미학예술학연구를 1순위로"></button></td><td class="sec"><a href="https://journal.kci.go.kr/ksasa/author/instruction">미학예술학연구</a><small class="fit">미학 이론과 예술의 이론·실천을 함께 다룸. 그림을 공연으로 옮기는 문제를 미학 쪽으로 풀 때</small></td><td>각주·참고문헌 포함 약 7,500단어(영문 투고 규정 기준). <em class="tbd">국문 원고 기준</em></td><td>마감 12월 15일·4월 15일·8월 15일, 발행 2월·6월·10월. 영문 규정상 심사료·게재료 없음, 회원 조건 언급 없음</td></tr>
       <tr><td><button type="button" class="pj" data-g="journal" data-v="kafte" data-label="연극교육연구" aria-pressed="false" aria-label="연극교육연구를 1순위로"></button></td><td class="sec"><a href="https://www.kci.go.kr/kciportal/po/search/poCitaView.kci?sereId=SER000010148">연극교육연구</a><small class="fit">B안에서 교수님 글이 학생 참여 제작을 다룬다면</small></td><td><em class="tbd">한국연극교육학회 규정</em></td><td>한국연극교육학회, KCI 등재. 연 3회(6월 30일, 9월 30일, 12월 31일) 발행</td></tr>
-      <tr><td><button type="button" class="pj" data-g="journal" data-v="atj" data-label="Asian Theatre Journal" aria-pressed="false" aria-label="Asian Theatre Journal을 1순위로"></button></td><td class="sec"><a href="https://uhpress.hawaii.edu/title/atj">Asian Theatre Journal</a><small class="fit">아시아 연극, 아시아와 서구 연극의 관계. La MaMa 초연과 잘 맞음</small></td><td>논문 6,000~8,000단어(미주 포함)</td><td>반년간. 영어가 아닌 원고는 원문과 영어 번역을 함께 냄. 논문 외에 창작·번역 희곡도 실음. 교수님 영어 대본에 해설을 붙여 싣는 방법도 있음</td></tr>
-      <tr><td><button type="button" class="pj" data-g="journal" data-v="stp" data-label="Studies in Theatre and Performance" aria-pressed="false" aria-label="Studies in Theatre and Performance를 1순위로"></button></td><td class="sec"><a href="https://www.tandfonline.com/journals/rstp20/about-this-journal">Studies in Theatre and Performance</a><small class="fit">실천에 기반한 연구, 대본과 실천 연구(PaR) 포트폴리오도 실음</small></td><td>논문 6,000~8,000단어</td><td>오픈액세스만 출판(게재료 확인)</td></tr>
+      <tr><td><button type="button" class="pj" data-g="journal" data-v="atj" data-label="Asian Theatre Journal" aria-pressed="false" aria-label="Asian Theatre Journal을 1순위로"></button></td><td class="sec"><a href="https://uhpress.hawaii.edu/title/atj">Asian Theatre Journal</a><small class="fit">아시아 연극, 아시아와 서구 연극의 관계. La MaMa 초연과 잘 맞음</small></td><td>논문 6,000~8,000단어(미주 포함)</td><td>반년간. 영어가 아닌 원고는 원문과 영어 번역을 함께 냄. 논문 외에 창작·번역 희곡도 실음. 대본 번역과 해설을 따로 기획하면 희곡 부문으로도 낼 수 있음</td></tr>
+      <tr><td><button type="button" class="pj" data-g="journal" data-v="stp" data-label="Studies in Theatre and Performance" aria-pressed="false" aria-label="Studies in Theatre and Performance를 1순위로"></button></td><td class="sec"><a href="https://www.tandfonline.com/journals/rstp20/about-this-journal">Studies in Theatre and Performance</a><small class="fit">실천에 기반한 연구, 대본과 실천 연구(PaR) 포트폴리오도 실음</small></td><td>논문 6,000~8,000단어</td><td>오픈액세스만 출판. 게재료 금액과 지원 여부 확인 필요</td></tr>
     </tbody>
   </table></div>
   <div class="asks panel"><h3>여쭙고 싶은 것</h3><ul>
     <li>교수님께서 이미 회원이신 학회가 있는지(「한국연극학」과 「한국극예술연구」는 정회원만 투고할 수 있습니다)</li>
     <li>국내 한 편을 먼저 낸 뒤 해외 학술지를 따로 준비할지</li>
   </ul></div>
+</div></section>
+
+<section id="direction" class="band"><div class="wrap">
+  <h2>4. 다루는 시기, 분량, 제목</h2>
+  <p class="intro">지금 보충 초안은 가안(2025 원점부터 9월 기록 대본까지) 기준으로 써 두었습니다. 나안으로 정하면 6장을 줄입니다.</p>
+  <div class="two">
+    <div class="panel"><h3>다루는 시기</h3>
+      <div class="opts" style="grid-template-columns:minmax(0,1fr)">
+        <button class="opt sm" type="button" data-g="range" data-v="ga" data-label="가. 2025 원점부터 기록 대본까지" aria-pressed="false"><span class="tag">가</span><span class="p">지금처럼 2025 원점부터 9월 기록 대본까지 모두 다룬다.</span><span class="pick">오늘 정한 안</span></button>
+        <button class="opt sm" type="button" data-g="range" data-v="na" data-label="나. 2026년 봄 사전 대본 중심, 6장 축소" aria-pressed="false"><span class="tag">나</span><span class="p">2026년 봄 사전 대본에 집중하고 6장을 줄인다. B안이라면 6장의 연습실 부분은 교수님 논문으로 넘어갈 수 있습니다.</span><span class="pick">오늘 정한 안</span></button>
+      </div></div>
+    <div class="panel"><h3>분량과 제목</h3>
+      <p>지금 39쪽은 학술지 기준보다 깁니다. 예를 들어 「한국극예술연구」는 200자 원고지 150매 이내가 원칙입니다. 3번에서 고른 투고처의 분량에 맞춰 줄이고, 줄일 때는 부록 1.1~1.8 가운데 남길 것부터 고릅니다.</p>
+      <div class="opts" style="grid-template-columns:minmax(0,1fr)">
+        <button class="opt sm" type="button" data-g="title" data-v="1" data-label="1안 (지금 제목)" aria-pressed="false"><span class="tag">1안</span><span class="p">지금 제목: 「조선 풍속화의 시각 정보를 넌버벌 퍼포먼스 서사로 변환하는 대본 작성 방법론 연구: ⟨매듭: 신윤복을 엮다⟩의 개고 과정을 중심으로」</span><span class="pick">오늘 정한 안</span></button>
+        <button class="opt sm" type="button" data-g="title" data-v="2" data-label="2안 「회화 기반 넌버벌 퍼포먼스 대본의 작성 및 개고 방법론」" aria-pressed="false"><span class="tag">2안</span><span class="p">「회화 기반 넌버벌 퍼포먼스 대본의 작성 및 개고 방법론」</span><span class="pick">오늘 정한 안</span></button>
+      </div></div>
+  </div>
 </div></section>
 
 <section id="checks" class="band"><div class="wrap">
@@ -383,24 +404,37 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
     <thead><tr><th>확인</th><th>봐 주셨으면 하는 것</th><th>절</th><th>내용</th><th>근거</th></tr></thead>
     <tbody id="checklist">
       <tr class="grp"><th colspan="5">가. 인용 동의<small>4건</small></th></tr>
-      <tr><td><input type="checkbox" id="k1" aria-labelledby="k1t"></td><td class="ask" id="k1t">메시지 인용 동의</td><td class="sec">각주 10여 곳</td><td>개인 교신 각주. 뜻을 바꾸지 않는 범위에서 풀어 쓰고, 연락처 같은 개인 정보는 넣지 않음</td><td>2025~2026 메시지</td></tr>
+      <tr><td><input type="checkbox" id="k1" aria-labelledby="k1t"></td><td class="ask" id="k1t">메시지 인용 동의</td><td class="sec">각주 11곳</td><td>뜻을 바꾸지 않는 범위에서 풀어 쓰고, 연락처 같은 개인 정보는 넣지 않음<details class="ex"><summary>인용하는 메시지 11건 보기</summary><ul>
+<li>2025.8.24 · 1.1: 크레딧을 '작가'로 하자는 말씀(대본이 따로 없어 드라마트루기가 작가에 포함)</li>
+<li>2025.8.25~26 · 5.1: 월야밀회 두 버전을 "다 해보고 정하자"</li>
+<li>2025.8.28 · 5.1: 전통 소녀의 '보호' 역할에 대한 작가의 우려(작가가 보낸 메시지)</li>
+<li>2025.8.30 · 3.2: 월하정인 타블로를 선물 직전의 순간에 맞추자는 제안</li>
+<li>2025.8.31 · 3.3: 주유청강 '상중 선비' 해석 공유(작가가 보낸 메시지)</li>
+<li>2026.3.8 · 2.1·3.2: 연출 브리프(40분→60~65분, 그림 추가, 놀이의 현대적 요소)</li>
+<li>2026.4.11 · 1.2: "대본은 연습 들어가면서 또 수정될 것"</li>
+<li>2026.8.31 · 6.1: 기록 대본을 영어로 옮겨 라마마 아카이빙 자료로 삼는다는 말씀</li>
+<li>2026.9.5 · 3.1: 쌍륙삼매를 세 사람이 짜고 치는 판으로 읽은 해석</li>
+<li>2026.9.13 · 6.4: 영어 대본 완성</li>
+<li>2026.9.17 · 6.4: 프롤로그 순서 확인("확인했어요. 좋아요!")</li>
+</ul></details></td><td>2025~2026 메시지</td></tr>
       <tr><td><input type="checkbox" id="k2" aria-labelledby="k2t"></td><td class="ask" id="k2t">메시지 인용 범위</td><td class="sec">3.2</td><td>월하정인 타블로를 선물을 건네기 직전의 순간에 맞추자는 2025년 판단</td><td>2025.8.30 메시지</td></tr>
-      <tr><td><input type="checkbox" id="k3" aria-labelledby="k3t"></td><td class="ask" id="k3t">구성안 문장을 이렇게 다뤄도 괜찮으신지</td><td class="sec">4.1</td><td>2025 구성안의 '치마폭이 열렸다가 닫히듯이'를 네거티브 샘플의 사례로 다루고 출처를 구성안으로 밝힘. 구성안 안에서는 제자리에 있던 문장이 대본으로 옮겨 오며 생긴 문제로 서술</td><td>2025 연출 구성안</td></tr>
+      <tr><td><input type="checkbox" id="k3" aria-labelledby="k3t"></td><td class="ask" id="k3t">구성안 문장을 이 사례로 다뤄도 괜찮으신지</td><td class="sec">4.1</td><td>2025 구성안의 '치마폭이 열렸다가 닫히듯이'를 연출 구성안 문체와 대본 문체의 경계를 보여 주는 예로 다룸. 구성안에서는 알맞던 문장이 대본으로 옮겨 오며 성격이 달라진 경우로 서술하고, 출처는 구성안으로 밝힘</td><td>2025 연출 구성안</td></tr>
       <tr><td><input type="checkbox" id="k4" aria-labelledby="k4t"></td><td class="ask" id="k4t">댓글 원문 직접 인용</td><td class="sec">6.3</td><td>"큐를 놓친 배우"가 담뱃대를 든 몸종으로, "마대를 든 스태프"가 뱃사공으로 서술된 과정. 쌍검대무 "이미 자기 등장 큐를 놓친 배우가…" 댓글 한 건</td><td>'260913' 댓글</td></tr>
-      <tr class="grp"><th colspan="5">나. 사실·표현 확인<small>8건</small></th></tr>
-      <tr><td><input type="checkbox" id="k5" aria-labelledby="k5t"></td><td class="ask" id="k5t">경과 서술이 실제와 맞는지</td><td class="sec">1.3 · 6.1</td><td>연습 과정에서 교수님을 중심으로 다시 짜인 구조(책가도, 노리개, 전모 여인)</td><td>9월 2일 회의</td></tr>
+      <tr class="grp"><th colspan="5">나. 사실·표현 확인<small>10건</small></th></tr>
+      <tr><td><input type="checkbox" id="k5" aria-labelledby="k5t"></td><td class="ask" id="k5t">경과 서술이 실제와 맞는지</td><td class="sec">1.3 · 6.1</td><td>연습 과정에서 교수님을 중심으로 다시 짜인 구조(책가도, 노리개, 전모 여인)<details class="ex"><summary>원고 6.1 서술 보기</summary><p>"9월 2일 회의에서 연습 과정에서 새로 짜인 구조를 장면별로 설명했다. (…) 관객 입장 때의 그림 조각들, 책가도의 빈 칸, 물속으로 사라진 노리개, 전모 여인의 안내가 공연의 골격이 되었다."</p></details></td><td>9월 2일 회의</td></tr>
       <tr><td><input type="checkbox" id="k6" aria-labelledby="k6t"></td><td class="ask" id="k6t">연소답청 장면의 제안자 표기</td><td class="sec">3.1</td><td>연소답청에서 폴리 배우가 "구도가 그림과 다르다"는 신호를 주는 장면을 교수님 제안으로 밝힘</td><td>'260913' 댓글</td></tr>
       <tr><td><input type="checkbox" id="k7" aria-labelledby="k7t"></td><td class="ask" id="k7t">해석을 나란히 적은 방식</td><td class="sec">3.3</td><td>단오풍정 봇짐 여인(새참 / 천 장사꾼 / 떡장수), 주유청강 세 쌍의 남녀</td><td>2025.8.28 댓글, 2025.8.31 메시지</td></tr>
-      <tr><td><input type="checkbox" id="k8" aria-labelledby="k8t"></td><td class="ask" id="k8t">교수님 설계로 밝힌 표현과 회의 기록 인용 범위</td><td class="sec">5.2.1 · 5.3</td><td>전모 여인을 앨리스의 토끼에 비유, 장마다 소녀의 변화를 가리키는 열쇠말</td><td>9월 2일 회의</td></tr>
-      <tr><td><input type="checkbox" id="k9" aria-labelledby="k9t"></td><td class="ask" id="k9t">간주의 출처, 영문 수정본 파일</td><td class="sec">6.4 · 부록 1.7</td><td>간주 I~III은 '260915'에서 처음 나타남. 9월 16일 프롤로그 순서, 월하정인 영문 수정본과 문장 대조</td><td>'260915', 9.13·9.17 메시지</td></tr>
-      <tr><td><input type="checkbox" id="k10" aria-labelledby="k10t"></td><td class="ask" id="k10t">"상주하지 않았다"가 사실인지</td><td class="sec">2.4 · 7장</td><td>"연구자는 연습 과정에 상주하지 않았다"는 한계 서술</td><td>연구자 기억</td></tr>
+      <tr><td><input type="checkbox" id="k8" aria-labelledby="k8t"></td><td class="ask" id="k8t">교수님 설계로 밝힌 표현과 회의 기록 인용 범위</td><td class="sec">5.2.1 · 5.3</td><td>전모 여인을 앨리스의 토끼에 비유, 장마다 소녀의 변화를 가리키는 열쇠말<details class="ex"><summary>원고 5.2.1 서술 보기</summary><p>"9월 2일 회의에서 이 인물은 소녀를 다른 세계로 이끄는 앨리스의 토끼에 비유되었다." 5.3에서는 회의에서 나온 장별 열쇠말을 교수님 설계로 밝혀 인용합니다.</p></details></td><td>9월 2일 회의</td></tr>
+      <tr><td><input type="checkbox" id="k9" aria-labelledby="k9t"></td><td class="ask" id="k9t">간주 I~III은 어디서 왔는지</td><td class="sec">6.4</td><td>간주 I~III(폴리 사운드스케이프)은 9월 15일본('260915')에서 처음 나타남. 교수님 영문 대본에서 온 것인지</td><td>'260915'</td></tr>
+      <tr><td><input type="checkbox" id="k17" aria-labelledby="k17t"></td><td class="ask" id="k17t">프롤로그 순서 서술이 맞는지</td><td class="sec">6.4</td><td>프로젝터를 끔 → 이동 → 전모 여인 등장·눈 맞춤 → 사라짐 → 문 발견. 9월 16일 댓글대로 썼고 9월 17일 확인받음</td><td>9.16 댓글, 9.17 메시지</td></tr>
+      <tr><td><input type="checkbox" id="k18" aria-labelledby="k18t"></td><td class="ask" id="k18t">월하정인 영문 수정본 파일</td><td class="sec">부록 1.7</td><td>9월 15일본에 반영한 월하정인 후반부를 교수님 영문 수정본과 문장 대조하지 못함. 파일을 받을 수 있는지</td><td>9.14 댓글</td></tr>
+      <tr><td><input type="checkbox" id="k10" aria-labelledby="k10t"></td><td class="ask" id="k10t">연습 참관에 관한 서술이 맞는지</td><td class="sec">2.4 · 7장</td><td>"연구자는 연습 과정에 상주하지 않았다"는 한계 서술. 4~8월 연습에 실제로 함께한 정도와 맞는지(A안이면 표현도 다시 봄)</td><td>작가 본인 서술</td></tr>
       <tr><td><input type="checkbox" id="k11" aria-labelledby="k11t"></td><td class="ask" id="k11t">8월 21일 시연의 명칭</td><td class="sec">본문 여러 곳</td><td>"8월 21일 출국 전 국내 시연"이라는 이름을 창작산실 지원서 표현과 맞추기. 위 연표의 이름도 함께 바꿈</td><td>창작산실 지원서</td></tr>
       <tr><td><input type="checkbox" id="k12" aria-labelledby="k12t"></td><td class="ask" id="k12t">2025 쇼케이스의 정확한 날짜</td><td class="sec">원점 시기</td><td>2025 서울예대 예술공학센터 쇼케이스(약 40분)의 날짜를 아직 확인하지 못함</td><td>확인 필요</td></tr>
-      <tr class="grp"><th colspan="5">다. 자료·사용 허가 요청<small>4건</small></th></tr>
-      <tr><td><input type="checkbox" id="k13" aria-labelledby="k13t"></td><td class="ask" id="k13t">도판·공연 사진 사용 허가</td><td class="sec">3장 · 6장</td><td>그림 1·2(간송미술관 소장) 사용 허가, 6장에 공연 사진이나 영상 캡처를 넣어도 되는지</td><td>도판</td></tr>
-      <tr><td><input type="checkbox" id="k14" aria-labelledby="k14t"></td><td class="ask" id="k14t">'260319'·'260411' 댓글 받기(내보내기 또는 이미지를 뺀 사본)</td><td class="sec">5장 · 부록</td><td>'260319'·'260411' 원본 문서는 이미지가 많아 댓글을 읽지 못함</td><td>Google Docs 원본</td></tr>
+      <tr class="grp"><th colspan="5">다. 자료·사용 허가 요청<small>3건 · 간송미술관 도판(그림 1·2) 허가는 제가 미술관에 따로 신청합니다</small></th></tr>
+      <tr><td><input type="checkbox" id="k13" aria-labelledby="k13t"></td><td class="ask" id="k13t">공연 사진·영상 캡처 사용</td><td class="sec">6장</td><td>6장에 La MaMa 공연 사진이나 영상 캡처를 넣어도 되는지, 넣는다면 누구에게 허락을 받아야 하는지</td><td>공연 기록</td></tr>
+      <tr><td><input type="checkbox" id="k14" aria-labelledby="k14t"></td><td class="ask" id="k14t">'260319'·'260411' 댓글 받기(내보내기 또는 이미지를 뺀 사본)</td><td class="sec">5장 · 부록</td><td>두 원본 문서는 이미지가 많아 파일이 커서 댓글을 한꺼번에 뽑아 정리하지 못했습니다. 댓글 내보내기나 이미지를 뺀 사본을 부탁드립니다.</td><td>Google Docs 원본</td></tr>
       <tr><td><input type="checkbox" id="k15" aria-labelledby="k15t"></td><td class="ask" id="k15t">9월 10일 메일을 다시 보내 주실 수 있는지</td><td class="sec">6장</td><td>2026년 9월 10일에 보내 주신 메일 내용을 논문 자료로 다시 받기</td><td>9.10 메일</td></tr>
-      <tr><td><input type="checkbox" id="k16" aria-labelledby="k16t"></td><td class="ask" id="k16t">'260917' 표기 문제와 미해결 댓글을 누가 정리할지</td><td class="sec">아카이브 대본</td><td>'260917'의 표기 문제 여섯 곳(띄어쓰기, 조사 빠짐, 굵게 표시 깨짐, 보이지 않는 문자)과 남은 미해결 댓글 3건</td><td>'260917'</td></tr>
     </tbody>
   </table></div>
 </div></section>
@@ -409,9 +443,16 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
   <h2>6. 다음 일정</h2>
   <div class="form">
     <label for="f-due">다음 원고 마감<input type="date" id="f-due"></label>
-    <label for="f-how">원고 주고받는 방식<select id="f-how"><option value="">고르기</option><option>공유 문서(Google Docs)</option><option>메일로 docx</option><option>GitHub 저장소</option></select></label>
+    <label for="f-how">원고 주고받는 방식<select id="f-how"><option value="">고르기</option><option>공유 문서(Google Docs)</option><option>메일로 docx</option></select></label>
     <label for="f-meet">다음 회의<input type="date" id="f-meet"></label>
   </div>
+  <div class="panel" style="margin-top:20px"><h3>논문 밖 정리: 최종 기록 대본('260917')</h3>
+    <p>띄어쓰기·조사 빠짐·굵게 표시 깨짐·보이지 않는 문자 등 표기 문제 여섯 곳과, 남은 미해결 댓글 3건을 누가 정리할지.</p>
+    <div class="opts" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+      <button class="opt sm" type="button" data-g="archive" data-v="me" data-label="김나영" aria-pressed="false"><span class="h">김나영</span><span class="pick">오늘 정한 안</span></button>
+      <button class="opt sm" type="button" data-g="archive" data-v="prof" data-label="교수님" aria-pressed="false"><span class="h">교수님</span><span class="pick">오늘 정한 안</span></button>
+      <button class="opt sm" type="button" data-g="archive" data-v="both" data-label="함께" aria-pressed="false"><span class="h">함께</span><span class="pick">오늘 정한 안</span></button>
+    </div></div>
   <label for="f-memo" class="intro" style="display:block;margin:20px 0 0">회의 메모</label>
   <textarea id="f-memo" placeholder="정한 것, 숙제, 교수님 말씀을 적어 둡니다"></textarea>
   <div class="bar"><button class="b" type="button" id="copy">정리한 내용 복사</button><button class="b ghost" type="button" id="reset">이 페이지 기록 지우기</button><span id="status" role="status"></span></div>
@@ -481,7 +522,7 @@ const paint=()=>{
   sels.forEach(b=>b.setAttribute('aria-pressed',String(st.sel[b.dataset.g]===b.dataset.v)));
   const a=st.sel.authors,dt=st.sel.data,r=st.sel.range,t=st.sel.title,j=st.sel.journal;
   setSt('authors',a?`정함: ${a}안`:'미정',a);
-  setSt('data',dt?(dt==='ok'?'정함: 이 경계로':'정함: 조정 필요'):'미정',dt);
+  setSt('data',dt?(dt==='ok'?'정함: 이 범위로':'정함: 조정 필요'):'미정',dt);
   setSt('direction',(r||t)?`시기 ${r==='ga'?'가':r==='na'?'나':'미정'} · 제목 ${t?t+'안':'미정'}`:'미정',r&&t);
   setSt('journal',j?label('journal'):'미정',j);
   const n=boxes.filter(b=>b.checked).length;setSt('checks',`${n}/${boxes.length} 확인`,n===boxes.length);
@@ -503,7 +544,7 @@ document.getElementById('copy').addEventListener('click',async()=>{
   const v=g=>label(g)||'미정';
   const done=boxes.filter(b=>b.checked).map(line),left=boxes.filter(b=>!b.checked).map(line);
   const txt=['〈매듭〉 논문 회의 정리 (2026.11.29)','',
-    '저자 구성: '+v('authors'),'자료 범위: '+v('data'),'다루는 시기: '+v('range'),'제목: '+v('title'),'1순위 투고처: '+v('journal'),'',
+    '저자 구성: '+v('authors'),'자료 범위: '+v('data'),'다루는 시기: '+v('range'),'제목: '+v('title'),'1순위 투고처: '+v('journal'),'260917 표기·댓글 정리: '+v('archive'),'',
     `확인한 것 (${done.length}/${boxes.length})`,...(done.length?done:['- 없음']),'','남은 것',...(left.length?left:['- 없음']),'',
     '다음 원고 마감: '+(fields[0].value||'미정'),'주고받는 방식: '+(fields[1].value||'미정'),'다음 회의: '+(fields[2].value||'미정'),'','메모',fields[3].value||'-'].join('\n');
   try{await navigator.clipboard.writeText(txt);status.textContent='복사했어요. 메신저나 메일에 붙여 넣으세요.'}catch(e){fields[3].value=fields[3].value+'\n\n'+txt;st['f-memo']=fields[3].value;save();status.textContent='복사가 막혀 있어 정리한 내용을 메모 칸 끝에 붙였어요.'}
