@@ -144,6 +144,36 @@ details.drawer>summary .more{font-size:16px;color:var(--indigo);text-decoration:
 details.drawer[open]>summary .more{display:none}
 details.drawer>summary:focus-visible{outline:3px solid var(--indigo);outline-offset:4px}
 details.drawer .body{margin-top:18px}
+.cell .kind.rd{color:var(--muted)}
+.thesis{font-family:"Gowun Batang",serif;font-size:clamp(20px,2.2vw,24px);line-height:1.6;max-width:44em;margin-bottom:22px}
+.thesis strong{color:var(--indigo)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0 0 8px}
+.facts div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+.facts dt{font-size:15px;font-weight:700;color:var(--indigo);margin-bottom:4px}
+.facts dd{margin:0;font-size:16px;line-height:1.6}
+h3.sub{font-size:23px;margin:40px 0 14px}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px;counter-reset:f}
+.flow li{position:relative;border-top:3px solid var(--indigo);padding-top:12px;display:flex;flex-direction:column;gap:4px;counter-increment:f}
+.flow li:not(:last-child)::after{content:"";position:absolute;top:-9px;right:-17px;width:12px;height:12px;border-radius:50%;border:2.5px solid var(--crimson);background:var(--bg)}
+.flow .ch,.case .ch{font-size:14px;font-weight:700;color:var(--crimson)}
+.flow b{font-family:"Gowun Batang",serif;font-size:19px;line-height:1.3}
+.flow li>span:last-child{font-size:16px;color:var(--muted)}
+.qa td{vertical-align:top}
+.qa td b{color:var(--indigo)}
+.qa td:nth-child(2){width:44%}
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.case{margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column}
+.case img{display:block;width:100%;height:auto;background:var(--panel)}
+.case figcaption{padding:16px 18px 6px;display:flex;flex-direction:column;gap:2px;font-size:16px;color:var(--muted)}
+.case figcaption b{font-family:"Gowun Batang",serif;font-size:22px;color:var(--ink)}
+.case dl{margin:0;padding:4px 18px 18px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 12px;font-size:16px}
+.case dt{font-weight:700;color:var(--indigo)}
+.case dd{margin:0}
+.toc{margin-top:28px;font-size:16px;color:var(--muted)}
+.toc b{color:var(--ink);margin-right:8px}
+@media(max-width:900px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.flow{grid-template-columns:minmax(0,1fr);gap:0}.flow li{border-top:0;border-left:3px solid var(--indigo);padding:0 0 18px 18px}.flow li:not(:last-child)::after{top:auto;bottom:-2px;right:auto;left:-8.5px}}
+@media(max-width:760px){.cases{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.facts{grid-template-columns:minmax(0,1fr)}}
 footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
 @media(max-width:900px){.chg{grid-template-columns:repeat(2,minmax(0,1fr))}.opts{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:760px){.shelf{grid-template-columns:repeat(2,minmax(0,1fr))}.two,.form{grid-template-columns:minmax(0,1fr)}}
@@ -162,7 +192,7 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
   <div class="wrap">
     <div class="meta"><span><b>논문 회의</b> 2026년 11월 29일(일) 오후 9시, 화상 · 1시간</span><span>김지영 교수님 · 김나영</span></div>
     <h1>〈매듭〉 대본 작성 방법론 논문, 같이 정하고 싶은 것들</h1>
-    <p class="lede">오늘은 <strong>저자 구성</strong>을 먼저 정하고, 그에 맞춰 <strong>자료 범위</strong>, <strong>논문 방향</strong>, <strong>투고처</strong>를 차례로 정했으면 합니다. 이어서 교수님께 확인받을 사실관계와 인용 동의 열여섯 건을 함께 봐 주세요.</p>
+    <p class="lede">오늘은 <strong>저자 구성</strong>을 먼저 정하고, 그에 맞춰 <strong>자료 범위</strong>, <strong>논문 방향</strong>, <strong>투고처</strong>를 차례로 정했으면 합니다. 이어서 교수님께 확인받을 사실관계와 인용 동의 열여섯 건을 함께 봐 주세요. 논문이 무엇을 다루는지는 <strong>0. 논문 개요</strong>에 그림과 함께 정리했습니다.</p>
     <p class="paper">「조선 풍속화의 시각 정보를 넌버벌 퍼포먼스 서사로 변환하는 대본 작성 방법론 연구: ⟨매듭: 신윤복을 엮다⟩의 개고 과정을 중심으로」 보충 초안 · 39쪽 · 각주 51개</p>
     <div class="fig" id="cordfig" role="img" aria-label="대본 개고 이력: 2025년 원점, 2026년 봄 양식 확립·복수 버전·통합·검증, 연습과 시연, 9월 기록, 9월 24~27일 La MaMa 초연"><svg id="cord"></svg></div>
     <details class="tl"><summary>버전별 날짜 펼치기</summary><ol class="tlgrid" id="tlgrid"></ol></details>
@@ -170,22 +200,94 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
 </header>
 
 <nav class="nav" aria-label="안건"><div class="scroll">
-  <a href="#agenda">순서</a><a href="#authors">1 저자 구성</a><a href="#scope">2 자료 범위</a><a href="#direction">3 논문 방향</a><a href="#journals">4 투고처</a><a href="#checks">5 확인·동의</a><a href="#next">6 다음 단계</a><a href="#draft" class="ref">참고: 논문 요약</a>
+  <a href="#agenda">순서</a><a href="#outline">0 논문 개요</a><a href="#authors">1 저자 구성</a><a href="#scope">2 자료 범위</a><a href="#direction">3 논문 방향</a><a href="#journals">4 투고처</a><a href="#checks">5 확인·동의</a><a href="#next">6 다음 단계</a>
 </div></nav>
 
 <div class="band" id="agenda"><div class="wrap">
   <div class="shelf">
+    <a class="cell ref" href="#outline"><span class="top"><span>0 · 회의 전</span><span class="kind rd">읽기</span></span><span class="name">논문 개요</span><small>무엇을 묻고 어떻게 답하는지, 그림으로 보는 사례 넷</small><b class="st">회의 전에 읽어 주세요</b></a>
     <a class="cell" href="#authors"><span class="top"><span>1 · 15분</span><span class="kind dec">결정</span></span><span class="name">저자 구성</span><small>한 편을 같이 쓸지, 두 편으로 나눌지, 단독에 감수로 할지</small><b class="st" data-st="authors">미정</b></a>
     <a class="cell" href="#scope"><span class="top"><span>2 · 10분</span><span class="kind dec">결정</span></span><span class="name">자료 범위</span><small>분석에 쓰는 자료와 쓰지 않는 자료의 경계</small><b class="st" data-st="data">미정</b></a>
     <a class="cell" href="#direction"><span class="top"><span>3 · 10분</span><span class="kind dec">결정</span></span><span class="name">논문 방향</span><small>다루는 시기, 분량, 제목</small><b class="st" data-st="direction">미정</b></a>
     <a class="cell" href="#journals"><span class="top"><span>4 · 5분</span><span class="kind dec">결정</span></span><span class="name">투고처</span><small>국내 등재지 넷, 해외 둘 가운데 1순위</small><b class="st" data-st="journal">미정</b></a>
     <a class="cell" href="#checks"><span class="top"><span>5 · 15분</span><span class="kind chk">확인</span></span><span class="name">확인·동의</span><small>인용 동의 4, 사실 확인 8, 자료 요청 4</small><b class="st" data-st="checks">0/16 확인</b></a>
     <a class="cell" href="#next"><span class="top"><span>6 · 5분</span><span class="kind dec">결정</span></span><span class="name">다음 단계</span><small>원고 마감, 주고받는 방식, 다음 회의</small><b class="st" data-st="next">미정</b></a>
-    <a class="cell ref" href="#draft"><span class="top"><span>참고</span></span><span class="name">논문 한눈에</span><small>연구 질문 다섯, 원칙 다섯, 7월 원고에서 바뀐 점</small><b class="st">회의 전에 읽어 주세요</b></a>
     <div class="cell sum"><span class="top"><span>합계 1시간</span></span><span class="big" data-st="sum">0/5</span><small>정한 안건. 칸이 다 채워지면 오늘 회의가 끝납니다.</small></div>
   </div>
   <p class="shelf-note">시간은 제안입니다. 아래에서 고르거나 체크하면 칸의 상태가 바뀝니다. 원고 PDF는 회의 전에 따로 보내드립니다.</p>
 </div></div>
+
+<section id="outline" class="band"><div class="wrap">
+  <h2>0. 논문은 이런 내용입니다</h2>
+  <p class="thesis">신윤복의 풍속화라는 <strong>멈춰 있는 그림</strong>을 <strong>말 없는 공연의 대본</strong>으로 옮길 때 작가는 무엇을 확인하고, 어떻게 쓰고, 어떻게 고쳐 왔는가. 〈매듭〉의 대본이 2025 쇼케이스에서 La MaMa 초연까지 바뀌어 온 과정을 버전끼리 직접 대조해, 넌버벌 대본을 쓰는 다섯 가지 원칙으로 정리한 논문입니다.</p>
+  <dl class="facts">
+    <div><dt>연구 방법</dt><dd>실천 주도 연구(practice-led research) 관점의 질적 단일 사례연구. 버전 간 텍스트 대조</dd></div>
+    <div><dt>분석 자료</dt><dd>2025 쇼케이스 대본, 사전 대본 일곱 버전, 최종 기록 대본 '260917'과 그에 이르는 수정 기록</dd></div>
+    <div><dt>집중 대조</dt><dd>전환점이 된 네 텍스트: '260328', '260404' 2종, '260411'</dd></div>
+    <div><dt>밝혀 둔 한계</dt><dd>단일 작품 사례, 연구자가 곧 작가라는 이중 위치, 연습 과정을 사후 기록으로 재구성</dd></div>
+  </dl>
+
+  <h3 class="sub">그림에서 기록 대본까지, 분석의 흐름</h3>
+  <ol class="flow">
+    <li><span class="ch">3장</span><b>원화를 확인하고 항목으로 적기</b><span>인물 수·공간·소품의 귀속을 원화에서 확인해 사실과 해석을 나눠 기록</span></li>
+    <li><span class="ch">4장</span><b>스토리 설계도의 문체</b><span>안무 지시가 아니라 서사적 행동을 쓰고, 버린 문장은 네거티브 샘플로 남김</span></li>
+    <li><span class="ch">5.1 · 5.2</span><b>두 버전을 함께 쓰고 합치기</b><span>장면의 기능은 고정하고 그것을 맡는 인물만 갈라 쓴 뒤 하나로 통합</span></li>
+    <li><span class="ch">5.3</span><b>감정 아크를 나중에 엮기</b><span>구조가 정해진 뒤 오늘의 소녀의 감정선을 처음부터 끝까지 꿰기</span></li>
+    <li><span class="ch">6장</span><b>상연된 무대를 다시 쓰기</b><span>연습실의 요청을 그림 세계 안의 동기로 옮기고, 상연 순서·번역과 맞추기</span></li>
+  </ol>
+
+  <h3 class="sub">다섯 질문과 다섯 원칙</h3>
+  <div class="scroll"><table class="stack qa">
+    <thead><tr><th>장</th><th>연구 질문</th><th>결론의 원칙</th></tr></thead>
+    <tbody>
+      <tr><td class="sec">3장</td><td>풍속화의 시각 정보(인물 수, 배경, 소품, 구도)를 대본의 서사 정보(감정, 관계, 사건)로 옮길 때 지킬 원칙은 무엇인가</td><td><b>원화 정밀 확인과 시각 정보의 항목화.</b> 사실과 해석을 나누어 기록하고, 원화와 다르게 쓸 때는 무엇을 바꾸고 지켰는지 밝힌다</td></tr>
+      <tr><td class="sec">4장</td><td>스토리 설계도로서 넌버벌 대본의 문체는 어떻게 규정되고, 개고 동안 어떻게 유지되는가</td><td><b>창작 메모와 네거티브 샘플.</b> 실제로 대본에 살아남았던 문장을 금지의 예로 적어 둔다</td></tr>
+      <tr><td class="sec">5.1 · 5.2</td><td>그림 순서와 인물 구성이 다른 복수 버전을 함께 쓸 때 무엇을 고정하고 무엇을 나누는가</td><td><b>복수 버전의 고정과 분기.</b> 장면의 기능은 고정하고 인물 배치만 나눈다</td></tr>
+      <tr><td class="sec">5.3</td><td>장면별 감정 서술은 어떻게 전체 감정 아크로 엮이는가</td><td><b>감정 아크의 후행 통합.</b> 구조가 정해진 뒤에 아크를 엮는다</td></tr>
+      <tr><td class="sec">6장</td><td>연습과 상연을 거친 작품을 다시 대본으로 옮길 때 서술 기준은 어떻게 달라지고, 연출의 요청은 어떻게 대본의 언어가 되는가</td><td><b>기록 대본의 서술 기준.</b> 무대의 사건을 그림 세계 안의 동기로 쓰고, 상연 순서와 번역본에 맞춘다</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">그림으로 보는 대표 사례</h3>
+  <p class="intro">원화는 모두 신윤복, 《혜원전신첩》, 간송미술관 소장. 앞의 두 점은 논문에 그림 1·2로 실려 있습니다.</p>
+  <div class="cases">
+    <figure class="case">
+      <img src="img/ssangyuk.jpg" width="600" height="484" loading="lazy" alt="쌍륙삼매: 바위와 나무 아래 흰 천 위에 쌍륙판이 놓이고, 남녀 네 사람이 판을 둘러싸고 있다">
+      <figcaption><span class="ch">3.1 · 3.2 · 그림 1</span><b>쌍륙삼매</b>등장 순서와 의식적 변형</figcaption>
+      <dl><dt>원화</dt><dd>야외. 남녀 네 사람이 한 판에 몰입해 있는 팽팽한 동시성.</dd>
+      <dt>대본</dt><dd>'260328'은 인물을 차례로 합류시켰으나, '260404'부터 네 사람이 처음부터 함께 등장하고 '260411'에서 자세와 소품까지 원화와 맞춰짐. 최종 기록 대본에서는 놀이가 오목으로 바뀌었지만, 놀이판의 자리와 네 인물의 구도는 원화를 지킨다.</dd></dl>
+    </figure>
+    <figure class="case">
+      <img src="img/wolha.jpg" width="1400" height="1050" loading="lazy" alt="월하정인: 초승달 아래 담장 골목에서 쓰개치마를 쓴 여인과 등불을 든 선비가 함께 서 있다">
+      <figcaption><span class="ch">3.2 · 그림 2</span><b>월하정인</b>소품의 귀속과 순간의 선택</figcaption>
+      <dl><dt>원화</dt><dd>등불(초롱)을 든 사람은 선비. 다른 손은 옷 안에 있고, 여인은 턱 아래에서 쓰개치마를 여민다.</dd>
+      <dt>대본</dt><dd>등불은 원화대로 선비의 손에 둔다. 2025년 교수님 제안대로 타블로를 선물을 건네기 직전의 순간에 맞췄고, 최종 기록 대본은 귀속은 그대로 둔 채 등불의 기능만 넓힌다.</dd></dl>
+    </figure>
+    <figure class="case">
+      <img src="img/juyu.jpg" width="600" height="486" loading="lazy" alt="주유청강: 차일을 친 배 위에서 갓 쓴 남자들과 여인들이 뱃놀이를 하고, 젊은 남자가 대금을 분다">
+      <figcaption><span class="ch">3.3 · 6.3</span><b>주유청강</b>인물 수는 고정, 관계는 해석</figcaption>
+      <dl><dt>원화</dt><dd>차일을 친 배 위의 뱃놀이. 인물의 수와 자세는 버전이 바뀌어도 흔들리지 않았다.</dd>
+      <dt>대본</dt><dd>짝짓기는 해석의 몫이라 버전마다 달랐고, 최종 대본은 교수님 요청대로 세 쌍의 남녀와 대금 연주자로 묶었다. 기록 대본에서는 마대를 든 스태프가 노를 젓는 뱃사공으로 서술되어 연출의 언어가 서사의 언어로 바뀐다.</dd></dl>
+    </figure>
+    <figure class="case">
+      <img src="img/wolya.jpg" width="600" height="482" loading="lazy" alt="월야밀회: 보름달 아래 담장 모퉁이에서 남녀가 끌어안고, 조금 떨어진 곳에서 한 여인이 이를 지켜본다">
+      <figcaption><span class="ch">5.1 · 6.2</span><b>월야밀회</b>두 해석을 나란히, 그리고 원점의 회귀</figcaption>
+      <dl><dt>원화</dt><dd>달밤 담장 모퉁이에서 만나는 남녀와, 떨어져서 이를 지켜보는 여인.</dd>
+      <dt>대본</dt><dd>2025년에 지켜보는 여인을 두 가지로 읽은 판본(염탐 / 망보기)을 나란히 써서 연습실에서 골랐다. 2026년 복수 버전 설계의 원점이다. 봄 대본에서 빠졌던 2025년의 설정은 기록 대본에서 되돌아온다.</dd></dl>
+    </figure>
+  </div>
+
+  <h3 class="sub">7월 원고에서 바뀐 점</h3>
+  <div class="chg">
+    <div><b>범위를 넓혔습니다</b><p>7월 원고는 '260411'에서 멈췄는데, 2025 쇼케이스(원점)부터 2026년 9월 기록 대본까지로 넓혔습니다.</p></div>
+    <div><b>6장 기록 대본을 새로 썼습니다</b><p>연습실을 거친 대본, 원점의 회귀, 연출의 언어에서 서사의 언어로, 기록 대본의 서술 기준(표 3).</p></div>
+    <div><b>사실관계를 바로잡았습니다</b><p>월하정인에서 등불을 든 사람은 선비라는 점(그림 2 추가), '치마폭…' 문장의 출처, '쌍륙삼매' 표기.</p></div>
+    <div><b>공연 시점</b><p>La MaMa 초연(2026년 9월 24~27일, The Downstairs)을 과거형으로, 2025년은 학내 쇼케이스로 정리했습니다.</p></div>
+    <div><b>부록 1.7 댓글 반영표</b><p>'260913'·'260915' 댓글 21건 대조. 교수님 요청 20건 중 17건 반영, 3건은 일부 반영 또는 대조가 남음.</p></div>
+    <div><b>부록 1.8 세 시기 대조</b><p>2025 쇼케이스 대본, '260411', '260917'의 장 순서와 핵심 요소.</p></div>
+  </div>
+  <p class="toc"><b>논문 구성</b> 초록 · 1장 서론(배경, 장르 특수성, 작품, 미술사적 이해, 선행연구, 연구 질문) · 2장 연구 방법(원점과 여섯 시기, 대조 절차, 연구자의 위치) · 3~6장 분석 · 7장 결론 · 부록 1 대조표 여덟 · 부록 2 창작 기준 문서 발췌</p>
+</div></section>
 
 <section id="authors" class="band"><div class="wrap">
   <h2>1. 저자 구성은 세 가지 길이 있습니다</h2>
@@ -315,39 +417,6 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
   <div class="bar"><button class="b" type="button" id="copy">정리한 내용 복사</button><button class="b ghost" type="button" id="reset">이 페이지 기록 지우기</button><span id="status" role="status"></span></div>
 </div></section>
 
-<section id="draft" class="band"><div class="wrap">
-  <details class="drawer" id="draft-d">
-    <summary><h2>참고: 논문은 다섯 질문에 다섯 원칙으로 답합니다</h2><span class="more">펼치기</span></summary>
-    <div class="body">
-  <p class="intro">2025년 쇼케이스 대본에서 출발해 사전 대본 일곱 버전, 연습과 시연, 최종 기록 대본 '260917'까지의 개고 과정을 텍스트 대조로 분석했습니다.</p>
-  <div class="two">
-    <div class="panel"><h3>연구 질문</h3><ol class="q">
-      <li>풍속화의 시각 정보(인물 수, 배경, 소품, 구도)를 대본의 서사 정보(감정, 관계, 사건)로 옮길 때 지킬 원칙은 무엇인가</li>
-      <li>스토리 설계도로서 넌버벌 대본의 문체는 어떻게 규정되고, 개고 동안 어떻게 유지되는가</li>
-      <li>그림 순서와 인물 구성이 다른 복수 버전을 함께 쓸 때 무엇을 고정하고 무엇을 나누는가</li>
-      <li>장면별 감정 서술은 어떻게 전체 감정 아크로 엮이는가</li>
-      <li>연습과 상연을 거친 작품을 다시 대본으로 옮길 때 서술 기준은 어떻게 달라지고, 연출의 요청은 어떻게 대본의 언어가 되는가</li>
-    </ol></div>
-    <div class="panel"><h3>결론의 원칙</h3><ol class="pr">
-      <li><b>원화 정밀 확인과 시각 정보의 항목화</b> 사실과 해석을 나누어 기록하고, 변형은 무엇을 바꾸고 지켰는지 밝힌다</li>
-      <li><b>창작 메모와 네거티브 샘플</b> 실제로 살아남았던 문장을 금지의 예로 적어 둔다</li>
-      <li><b>복수 버전의 고정과 분기</b> 장면의 기능은 고정하고 인물 배치만 나눈다</li>
-      <li><b>감정 아크의 후행 통합</b> 구조가 정해진 뒤에 아크를 엮는다</li>
-      <li><b>기록 대본의 서술 기준</b> 무대의 사건을 그림 세계 안의 동기로 쓰고, 상연 순서와 번역본에 맞춘다</li>
-    </ol></div>
-  </div>
-  <div class="chg">
-    <div><b>범위를 넓혔습니다</b><p>7월 원고는 '260411'에서 멈췄는데, 2025 쇼케이스(원점)부터 2026년 9월 기록 대본까지로 넓혔습니다.</p></div>
-    <div><b>6장 기록 대본을 새로 썼습니다</b><p>연습실을 거친 대본, 원점의 회귀, 연출의 언어에서 서사의 언어로, 기록 대본의 서술 기준(표 3).</p></div>
-    <div><b>사실관계를 바로잡았습니다</b><p>월하정인에서 등불을 든 사람은 선비라는 점(그림 2 추가), '치마폭…' 문장의 출처, '쌍륙삼매' 표기.</p></div>
-    <div><b>공연 시점</b><p>La MaMa 초연(2026년 9월 24~27일, The Downstairs)을 과거형으로, 2025년은 학내 쇼케이스로 정리했습니다.</p></div>
-    <div><b>부록 1.7 댓글 반영표</b><p>'260913'·'260915' 댓글 21건 대조. 교수님 요청 20건 중 17건 반영, 3건은 일부 반영 또는 대조가 남음.</p></div>
-    <div><b>부록 1.8 세 시기 대조</b><p>2025 쇼케이스 대본, '260411', '260917'의 장 순서와 핵심 요소.</p></div>
-  </div>
-    </div>
-  </details>
-</div></section>
-
 <footer class="band"><div class="wrap">작성 2026년 11월 22일 · 김나영. 투고처 정보는 2026년 11월 22일 각 학회 투고 규정과 KCI 페이지 기준이며, '확인 필요' 칸은 투고 전에 다시 확인합니다.</div></footer>
 
 <script>
@@ -426,11 +495,6 @@ boxes.forEach(b=>{b.checked=!!st.c[b.id];b.addEventListener('change',()=>{st.c[b
 fields.forEach(f=>{if(st[f.id])f.value=st[f.id];f.addEventListener('input',()=>{st[f.id]=f.value;paint();save()})});
 paint();
 
-/* 참고 구역은 링크로 들어오면 펼친다 */
-const dd=document.getElementById('draft-d');
-const openDraft=()=>{if(location.hash==='#draft')dd.open=true};
-addEventListener('hashchange',openDraft);openDraft();
-document.querySelectorAll('a[href="#draft"]').forEach(a=>a.addEventListener('click',()=>{dd.open=true}));
 
 /* 정리 복사 */
 const status=document.getElementById('status');
