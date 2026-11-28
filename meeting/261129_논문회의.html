@@ -14,7 +14,7 @@
    COLOUR 흰 바탕, 쪽빛(주), 먹(글), 연지(노리개 술·정한 것·공연 시점)
    TYPE Gowun Batang 제목 + Noto Sans KR 본문. 화면 공유를 고려해 본문 18px, 표 16px 이상
    LAYOUT 쪽빛 띠 안에 제목과 끈 그림, 그 아래 책가도 안건판(시간·종류·상태), 이어서 결정 순서대로 안건 구역, 논문 요약은 맨 뒤 참고 */
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#13151a);--ink:light-dark(#1b1a18,#ecebe6);--muted:light-dark(#45433e,#c4c2bb);--indigo:light-dark(#26428b,#93a9e6);--tint:light-dark(#eef2fb,#1b2238);--crimson:light-dark(#b3243c,#ff7a90);--line:light-dark(#d4d2ca,#363a44);--panel:light-dark(#f7f7f4,#1a1d24);--band:light-dark(#22397a,#18234a)}
+:root{color-scheme:light dark;--s1:light-dark(#2a78d6,#3987e5);--s2:light-dark(#eb6834,#d95926);--bg:light-dark(#ffffff,#13151a);--ink:light-dark(#1b1a18,#ecebe6);--muted:light-dark(#45433e,#c4c2bb);--indigo:light-dark(#26428b,#93a9e6);--tint:light-dark(#eef2fb,#1b2238);--crimson:light-dark(#b3243c,#ff7a90);--line:light-dark(#d4d2ca,#363a44);--panel:light-dark(#f7f7f4,#1a1d24);--band:light-dark(#22397a,#18234a)}
 :root[data-theme=light]{color-scheme:light}
 :root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
@@ -183,6 +183,104 @@ details.ex ul{margin:6px 0 0;padding-left:1.1em}
 details.ex li{margin-bottom:4px}
 details.ex p{margin:6px 0 0;color:var(--muted)}
 @media(max-width:600px){.gloss dl,.toc dl{grid-template-columns:minmax(0,1fr);gap:2px}.gloss dd,.toc dd{margin-bottom:10px}}
+.viz text{font-family:"Noto Sans KR",sans-serif;fill:var(--ink)}
+.viz .sm,.viz .ax{font-size:13px;fill:var(--muted)}
+.viz .b{font-size:15px;font-weight:700}
+.vizwrap svg{display:block;width:100%;min-width:900px;height:auto}
+.vnote,.fnote{font-size:15px;color:var(--muted);margin:8px 0 0}
+.vpath .ph text{font-size:14px;font-weight:700;fill:var(--indigo);text-anchor:middle}
+.vpath .ln{fill:none;stroke:var(--indigo);stroke-width:3;stroke-linecap:round}
+.vpath .ln.thin{stroke-width:1.6;stroke-dasharray:5 5}
+.vpath .ln.acc{stroke:var(--crimson)}
+.vpath .brk{stroke:var(--muted);stroke-width:2}
+.vpath .ret{fill:none;stroke:var(--crimson);stroke-width:2;stroke-dasharray:6 6}
+.vpath .retl{font-size:14px;fill:var(--crimson)}
+.vpath .room{fill:var(--tint);stroke:var(--indigo);stroke-dasharray:5 4}
+.vpath .eng{fill:var(--panel);stroke:var(--muted)}
+.vpath .arr{stroke:var(--muted);stroke-width:1.6;fill:none}
+.vpath .ahp{fill:var(--muted)}
+.vpath .nd circle{fill:var(--bg);stroke:var(--indigo);stroke-width:3}
+.vpath .nd.key circle{fill:var(--indigo)}
+.vpath .nd.prem circle{fill:var(--crimson);stroke:var(--crimson)}
+.vpath .accx{fill:var(--crimson)}
+.figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.fg{margin:0;border:1px solid var(--line);border-radius:10px;padding:18px 20px;background:var(--bg)}
+.fg.wide{grid-column:1/-1}
+.fg figcaption{display:flex;flex-direction:column;gap:2px;margin-bottom:12px}
+.fg figcaption b{font-family:"Gowun Batang",serif;font-size:20px;line-height:1.3}
+.fg .ch{font-size:14px;font-weight:700;color:var(--crimson)}
+.map{display:grid;gap:6px;font-size:15px}
+.mh,.mr{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;align-items:stretch}
+.mh span{font-size:13px;font-weight:700;color:var(--muted)}
+.mr span{padding:8px 10px;border-radius:6px;background:var(--panel);position:relative}
+.mr span:first-child{background:var(--tint)}
+.mr span:not(:last-child)::after{content:"";position:absolute;right:-7px;top:50%;width:0;height:0;border:5px solid transparent;border-left-color:var(--indigo);transform:translateY(-50%)}
+.fork{display:grid;gap:10px;font-size:15px}
+.fix,.merge{padding:10px 12px;border-radius:6px;text-align:center;font-weight:500}
+.fix{background:var(--tint);color:var(--indigo)}
+.merge{border:1.5px dashed var(--indigo);color:var(--indigo)}
+.two-v{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vv{border:1px solid var(--line);border-radius:6px;padding:10px 12px;background:var(--panel)}
+.vv b{display:block}
+.vv small{display:block;color:var(--muted);font-size:13px}
+.vv p{margin:6px 0 0}
+.arc{display:grid;gap:14px}
+.arow{display:grid;gap:6px}
+.alab{font-weight:700;font-size:15px;line-height:1.3}
+.alab small{display:inline;margin-left:8px}
+.alab small,.steps small,.nchip small{display:block;font-weight:400;font-size:12.5px;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 0;align-items:center}
+.steps li{position:relative;font-size:14.5px;padding:6px 10px;border-radius:6px;background:var(--panel);margin-right:18px;line-height:1.3}
+.steps li:not(:last-child)::after{content:"";position:absolute;right:-14px;top:50%;width:10px;border-top:2px solid var(--indigo)}
+.steps li.end{background:var(--indigo);color:#fff}
+.steps li.end small{color:#dfe5f7}
+.names{display:grid;gap:12px}
+.nrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.nchip{padding:6px 10px;border-radius:6px;background:var(--panel);font-size:15px;font-weight:500;line-height:1.3}
+.nchip.on{background:var(--indigo);color:#fff}
+.nchip.on small{color:#dfe5f7}
+.nchip.off{background:transparent;border:1.5px dashed var(--muted);color:var(--muted)}
+.nar{width:18px;border-top:2px solid var(--indigo);position:relative}
+.nar::after{content:"";position:absolute;right:-2px;top:-5px;border:4px solid transparent;border-left-color:var(--indigo)}
+.cmp{display:grid;gap:4px;font-size:15px}
+.ch3,.cr{display:grid;grid-template-columns:9em 1fr 1fr;gap:8px}
+.ch3 span{font-weight:700;font-size:16px;padding:6px 10px}
+.ch3 span:nth-child(2){background:var(--tint);border-radius:6px}
+.ch3 span:nth-child(3){background:var(--indigo);color:#fff;border-radius:6px}
+.ch3 small{display:block;font-weight:400;font-size:13px;opacity:.85}
+.cr span{padding:7px 10px;border-bottom:1px solid var(--line)}
+.cr span:first-child{font-weight:700;color:var(--muted);font-size:14px}
+.aico{width:150px;height:56px;align-self:flex-start;margin-bottom:4px}
+.aico .d{fill:var(--panel);stroke:var(--indigo);stroke-width:1.6}
+.aico .dl{stroke:var(--muted);stroke-width:1.4}
+.aico .pp{fill:none;stroke:var(--indigo);stroke-width:2}
+.aico .lk{stroke:var(--indigo);stroke-width:1.6;fill:none}
+.aico .lkf{fill:var(--indigo)}
+.aico .dash{stroke-dasharray:3 3}
+.aico text{font-size:11px;fill:var(--muted);font-family:"Noto Sans KR",sans-serif}
+.lenfig{margin:12px 0 8px}
+.lenfig svg{width:100%;max-width:560px;height:auto;display:block}
+.lenfig figcaption{font-size:14px;color:var(--muted)}
+.lenbar .gx path,.jstrip .gx{stroke:var(--line);stroke-width:1}
+.lenbar .bar1 rect{fill:var(--s1)}
+.lenbar .bl{font-size:14px;font-weight:700;fill:#fff}
+.lenbar .lim{stroke:var(--ink);stroke-width:2;stroke-dasharray:4 3}
+.lenbar .ll{font-size:13px;font-weight:700}
+.strip{margin:26px 0 0}
+.strip figcaption b{font-family:"Gowun Batang",serif;font-size:20px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;margin:6px 0 4px;align-items:center}
+.legend .ax{color:var(--muted)}
+.lg{display:inline-block;width:12px;height:12px;margin-right:6px;vertical-align:-1px}
+.lg.dlm{background:var(--s2);transform:rotate(45deg) scale(.85)}
+.lg.pbm{background:var(--s1);border-radius:50%}
+.jstrip .rl{font-size:15px;font-weight:700}
+.jstrip .spn{stroke:var(--line);stroke-width:3}
+.jstrip .dlm path{fill:var(--s2);stroke:var(--bg);stroke-width:2}
+.jstrip .pbm circle{fill:var(--s1);stroke:var(--bg);stroke-width:2}
+.jstrip .today{stroke:var(--crimson);stroke-width:2;stroke-dasharray:4 3}
+.jstrip .tdl{font-size:12px;fill:var(--crimson)}
+@media(max-width:900px){.figs{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.mh,.mr{grid-template-columns:1fr}.mh{display:none}.mr span:not(:last-child)::after{display:none}.mr{border-bottom:1px solid var(--line);padding-bottom:6px}.two-v{grid-template-columns:1fr}.ch3,.cr{grid-template-columns:1fr 1fr}.ch3 span:first-child,.cr span:first-child{grid-column:1/-1;padding-bottom:0;border:0}}
 footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
 @media(max-width:900px){.chg{grid-template-columns:repeat(2,minmax(0,1fr))}.opts{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:760px){.shelf{grid-template-columns:repeat(2,minmax(0,1fr))}.two,.form{grid-template-columns:minmax(0,1fr)}}
@@ -250,6 +348,50 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
     <dt>폴리 배우</dt><dd>무대 위에서 효과음을 직접 만들어 내는 배우.</dd>
   </dl></div>
 
+  <h3 class="sub">대본이 바뀌어 온 길</h3>
+  <p class="intro">버전마다 점 하나입니다. 4월 4일에 두 판으로 갈라졌다가 4월 6일에 합쳐졌고, 연습실을 거친 뒤 9월에 기록 대본으로 다시 쓰였습니다. 아래 점선은 봄 대본에서 빠졌던 2025년 요소가 기록 대본에서 돌아온 흐름입니다.</p>
+  <div class="scroll vizwrap"><svg class="viz vpath" viewBox="0 0 1200 340" role="img" aria-labelledby="vpath-t vpath-d">
+    <title id="vpath-t">대본 버전의 흐름</title>
+    <desc id="vpath-d">2025 쇼케이스 대본에서 출발해 3월 19일, 23일, 28일본을 거쳐 4월 4일 주유청강판과 무녀신무판으로 갈라졌다가 4월 6일 통합, 4월 11일 연습 진입본이 된다. 연습실과 8월 21일 시연을 거쳐 9월 13일 기록 대본이 영어 대본의 바탕이 되고, 영어 대본의 수정이 9월 15일본에 반영된 뒤 9월 17일 최종 기록 대본이 확정되고 9월 24일부터 27일까지 La MaMa에서 초연했다.</desc>
+    <g class="ph">
+      <text x="60" y="22">원점</text><text x="260" y="22">양식 확립</text><text x="450" y="22">복수 버전</text><text x="560" y="22">통합</text><text x="655" y="22">검증·완성</text><text x="790" y="22">연습·시연</text><text x="990" y="22">기록</text><text x="1150" y="22">초연</text>
+    </g>
+    <path class="ret" d="M75 200 Q570 410 1080 205"/>
+    <text class="retl" x="570" y="330" text-anchor="middle">원점의 회귀(6.2): 월야밀회 '군관의 바람', 에필로그의 미소 등 2025년 요소가 돌아옴</text>
+    <path class="ln" d="M60 160 H120 M140 160 H340"/>
+    <path class="brk" d="M122 170 l8 -20 M132 170 l8 -20"/>
+    <text class="sm" x="131" y="190" text-anchor="middle">6개월</text>
+    <path class="ln" d="M340 160 C390 160 400 95 450 95 M340 160 C390 160 400 225 450 225"/>
+    <path class="ln thin" d="M450 95 C500 95 510 160 560 160"/>
+    <path class="ln" d="M450 225 C500 225 510 160 560 160"/>
+    <path class="ln" d="M560 160 H730 M850 160 H1080"/>
+    <path class="ln acc" d="M1080 160 H1150"/>
+    <rect class="room" x="730" y="132" width="120" height="56" rx="8"/>
+    <text class="b" x="790" y="155" text-anchor="middle">연습실</text>
+    <text class="sm" x="790" y="176" text-anchor="middle">8.21 시연까지</text>
+    <rect class="eng" x="890" y="44" width="110" height="38" rx="8"/>
+    <text class="b" x="945" y="68" text-anchor="middle">영어 대본</text>
+    <path class="arr" d="M905 148 L925 84" marker-end="url(#ah)"/>
+    <path class="arr" d="M965 84 L985 148" marker-end="url(#ah)"/>
+    <text class="sm" x="880" y="118" text-anchor="end">바탕이 됨</text>
+    <text class="sm" x="985" y="112">고친 내용을 국문에 반영</text>
+    <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ahp"/></marker></defs>
+    <g class="nd"><circle cx="60" cy="160" r="9"/><title>2025 쇼케이스 대본(2025년 8~9월)</title></g>
+    <text class="b" x="60" y="140" text-anchor="middle">2025 대본</text><text class="sm" x="60" y="190" text-anchor="middle">쇼케이스</text>
+    <g class="nd"><circle cx="180" cy="160" r="8"/><title>'260319' 3월 19일본</title></g><text class="b" x="180" y="140" text-anchor="middle">3.19</text>
+    <g class="nd"><circle cx="260" cy="160" r="8"/><title>'260323' 3월 23일본</title></g><text class="b" x="260" y="140" text-anchor="middle">3.23</text>
+    <g class="nd key"><circle cx="340" cy="160" r="10"/><title>'260328' 3월 28일본, 집중 대조 대상</title></g><text class="b" x="340" y="140" text-anchor="middle">3.28</text><text class="sm" x="340" y="190" text-anchor="middle">기준점</text>
+    <g class="nd key"><circle cx="450" cy="95" r="10"/><title>'260404' 주유청강판: 주유청강으로 시작, 전통 소녀 등장</title></g><text class="b" x="450" y="56" text-anchor="middle">4.4 주유청강판</text><text class="sm" x="450" y="76" text-anchor="middle">전통 소녀 등장</text>
+    <g class="nd key"><circle cx="450" cy="225" r="10"/><title>'260404' 무녀신무판: 무녀신무로 시작, 전통 소녀 없음. 통합의 바탕</title></g><text class="b" x="450" y="256" text-anchor="middle">4.4 무녀신무판</text><text class="sm" x="450" y="275" text-anchor="middle">전통 소녀 없음, 통합의 바탕</text>
+    <g class="nd"><circle cx="560" cy="160" r="8"/><title>'260406' 4월 6일 통합본</title></g><text class="b" x="560" y="140" text-anchor="middle">4.6</text><text class="sm" x="560" y="190" text-anchor="middle">통합</text>
+    <g class="nd key"><circle cx="655" cy="160" r="10"/><title>'260411' 4월 11일본, 연습 진입본</title></g><text class="b" x="655" y="140" text-anchor="middle">4.11</text><text class="sm" x="655" y="190" text-anchor="middle">연습 진입본</text>
+    <g class="nd"><circle cx="905" cy="160" r="8"/><title>'260913' 9월 13일 기록 대본 공유 문서</title></g><text class="b" x="905" y="190" text-anchor="middle">9.13</text>
+    <g class="nd"><circle cx="990" cy="160" r="8"/><title>'260915' 영어 대본 수정을 반영한 판</title></g><text class="b" x="990" y="190" text-anchor="middle">9.15</text>
+    <g class="nd key"><circle cx="1080" cy="160" r="10"/><title>'260917' 최종 기록 대본(라마마 아카이빙용)</title></g><text class="b" x="1080" y="140" text-anchor="middle">9.17</text><text class="sm" x="1080" y="190" text-anchor="middle">최종 기록 대본</text>
+    <g class="nd prem"><circle cx="1150" cy="160" r="11"/><title>La MaMa 초연, 2026년 9월 24~27일</title></g><text class="b accx" x="1150" y="140" text-anchor="middle">La MaMa</text><text class="sm" x="1150" y="190" text-anchor="middle">9.24~27</text>
+  </svg></div>
+  <p class="vnote">큰 점은 본문에서 집중 대조한 버전입니다. 점에 마우스를 올리면 버전 이름이 나옵니다.</p>
+
   <h3 class="sub">장별 분석 순서</h3>
   <ol class="flow">
     <li><span class="ch">3장</span><b>원화를 확인하고 항목으로 적기</b><span>인물 수·공간·소품의 귀속을 원화에서 확인해 사실과 해석을 나눠 기록</span></li>
@@ -258,6 +400,65 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
     <li><span class="ch">5.3</span><b>감정선은 마지막에 정리</b><span>장면마다 따로 쓴 감정 서술을 구조가 정해진 뒤 오늘의 소녀 한 사람의 흐름으로 맞추기</span></li>
     <li><span class="ch">6장</span><b>상연된 무대를 다시 쓰기</b><span>연습실의 요청을 그림 세계 안의 동기로 옮기고, 상연 순서·번역과 맞추기</span></li>
   </ol>
+
+  <h3 class="sub">장별 핵심을 그림으로</h3>
+  <div class="figs">
+    <figure class="fg">
+      <figcaption><span class="ch">3장</span><b>원화에서 무엇을 확인하고 무엇을 정하나</b></figcaption>
+      <div class="map" role="table" aria-label="시각 정보 세 층위와 대본 설계">
+        <div class="mh" role="row"><span role="columnheader">원화에서 확인</span><span role="columnheader">대본에서 정하는 것</span><span role="columnheader">쌍륙삼매의 경우</span></div>
+        <div class="mr" role="row"><span role="cell"><b>인물의 수와 구성</b></span><span role="cell">등장 설계, 퍼포머 편성</span><span role="cell">남녀 네 사람</span></div>
+        <div class="mr" role="row"><span role="cell"><b>공간의 성격</b></span><span role="cell">무대 미술, 음향</span><span role="cell">야외, 바위와 나무 아래</span></div>
+        <div class="mr" role="row"><span role="cell"><b>소품의 귀속</b></span><span role="cell">동선, 감정의 주도권</span><span role="cell">담뱃대를 든 남자, 판을 둘러싼 네 사람</span></div>
+      </div>
+      <p class="fnote">사실(원화에서 확인한 것)과 해석(작가·연출의 읽기)은 따로 적고, 원화와 다르게 쓸 때는 무엇을 바꾸고 지켰는지 밝힙니다.</p>
+    </figure>
+
+    <figure class="fg">
+      <figcaption><span class="ch">5.1 · 5.2</span><b>두 판을 함께 쓸 때 같게 둔 것과 나눈 것</b></figcaption>
+      <div class="fork">
+        <div class="fix">같게 둔 것: 원화 정보 · 용어 · 문체 · 장면이 맡은 기능</div>
+        <div class="two-v">
+          <div class="vv"><b>4.4 주유청강판</b><small>주유청강으로 시작, 전통 소녀 등장</small><p>이부탐춘의 웃음: 전통 소녀의 당황과 두 소녀의 교감</p></div>
+          <div class="vv"><b>4.4 무녀신무판</b><small>무녀신무로 시작, 전통 소녀 없음</small><p>이부탐춘의 웃음: 그림 속 몸종과 과부 사이에서 일어남</p></div>
+        </div>
+        <div class="merge">4.6 통합: 전통 소녀가 없는 구성을 바탕으로 하나로 합침</div>
+      </div>
+    </figure>
+
+    <figure class="fg">
+      <figcaption><span class="ch">5.3</span><b>오늘의 소녀의 감정선은 두 번 짜였다</b></figcaption>
+      <div class="arc">
+        <div class="arow"><span class="alab">4.11 연습 진입본<small>내면 서술로</small></span>
+          <ol class="steps"><li>단절<small>헤드폰과 휴대폰</small></li><li>호기심</li><li>몰입</li><li>동경</li><li class="end">들어가기로 결심<small>청루소일</small></li></ol></div>
+        <div class="arow"><span class="alab">9.17 최종 기록 대본<small>사물의 이동으로</small></span>
+          <ol class="steps"><li>노리개를 잃음</li><li>따라감</li><li class="end">건네받음<small>미인도, 그림 세계로</small></li><li>제자리에 놓음<small>책가도의 빈 칸</small></li></ol></div>
+      </div>
+      <p class="fnote">구조가 정해진 뒤에 감정선을 엮었고, 연습실에서 구조가 다시 짜이자 감정선도 다시 짜였습니다.</p>
+    </figure>
+
+    <figure class="fg">
+      <figcaption><span class="ch">5.2.1</span><b>인물 이름이 바뀐 경로</b></figcaption>
+      <div class="names">
+        <div class="nrow"><span class="nchip">어우동 소녀<small>작업 중 부르던 이름</small></span><span class="nar" aria-hidden="true"></span><span class="nchip">전모 소녀<small>4.11, 소품 이름 '전모'로</small></span><span class="nar" aria-hidden="true"></span><span class="nchip on">전모 여인<small>9.17 최종 기록 대본</small></span></div>
+        <div class="nrow"><span class="nchip">전통 소녀<small>2025 쇼케이스, 봄 일부 판(4.4 주유청강판 등)</small></span><span class="nar" aria-hidden="true"></span><span class="nchip off">4.6 통합 때 빠짐</span></div>
+        <p class="fnote">노리개를 건네는 사람은 전통 소녀(2025)에서 전모 여인(최종)으로 바뀌었지만, 소녀가 그림 속 인물에게서 노리개를 받는 사건은 세 시기 내내 이어집니다(6.2).</p>
+      </div>
+    </figure>
+
+    <figure class="fg wide">
+      <figcaption><span class="ch">6장 · 표 3</span><b>사전 대본과 기록 대본은 이렇게 다르다</b></figcaption>
+      <div class="cmp" role="table" aria-label="사전 대본과 기록 대본 비교">
+        <div class="ch3" role="row"><span role="columnheader"></span><span role="columnheader">사전 대본<small>3.19~4.11</small></span><span role="columnheader">기록 대본<small>9.13~9.17</small></span></div>
+        <div class="cr" role="row"><span role="rowheader">무엇을 위해</span><span role="cell">제작의 출발점이 되는 스토리 설계도</span><span role="cell">상연된 작품을 보존하고 영어 대본의 바탕이 되는 기록</span></div>
+        <div class="cr" role="row"><span role="rowheader">먼저 읽는 사람</span><span role="cell">연출가, 안무가, 퍼포머</span><span role="cell">극장 기록 보관, 번역자, 재공연 제작진</span></div>
+        <div class="cr" role="row"><span role="rowheader">무대 위 사건</span><span role="cell">서사적 행동만 쓰고 구현은 열어 둠</span><span role="cell">스태프의 합류, 폴리 배우의 신호까지 쓰되 그림 속 동기로 서술</span></div>
+        <div class="cr" role="row"><span role="rowheader">소리</span><span role="cell">분위기를 깨우는 최소한의 언급</span><span role="cell">간주를 독립된 절로 기록</span></div>
+        <div class="cr" role="row"><span role="rowheader">맞는지 보는 기준</span><span role="cell">처음 읽는 연출자가 막히지 않는가</span><span role="cell">실제 상연 순서·영어 대본과 어긋나지 않는가</span></div>
+        <div class="cr" role="row"><span role="rowheader">고치는 방식</span><span role="cell">창작 기준 문서에 따라 회차별로</span><span role="cell">공유 문서에서 요청과 처리가 짝을 이루는 왕복</span></div>
+      </div>
+    </figure>
+  </div>
 
   <h3 class="sub">연구 질문과 결론의 원칙</h3>
   <div class="scroll"><table class="stack qa">
@@ -324,17 +525,17 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
   <h2>1. 저자 구성 세 가지 안</h2>
   <p class="intro">연출 쪽으로 하실 말씀이 많으면 B안이 맞고, 한 편으로 묶으면(A안) 6장을 교수님 관점으로 보강하는 일이 가장 큽니다. 카드를 눌러 오늘 정한 안을 표시할 수 있습니다.</p>
   <div class="opts">
-    <button class="opt" type="button" data-g="authors" data-v="A" data-label="A 한 편을 같이 쓰기" aria-pressed="false"><span class="tag">A</span><span class="h">한 편을 같이 쓰기</span>
+    <button class="opt" type="button" data-g="authors" data-v="A" data-label="A 한 편을 같이 쓰기" aria-pressed="false"><svg class="aico" viewBox="0 0 150 56" aria-hidden="true"><rect x="62" y="4" width="26" height="34" rx="3" class="d"/><path d="M68 14h14M68 20h14M68 26h9" class="dl"/><circle cx="30" cy="14" r="6" class="pp"/><path d="M21 31a9 8 0 0 1 18 0" class="pp"/><circle cx="120" cy="14" r="6" class="pp"/><path d="M111 31a9 8 0 0 1 18 0" class="pp"/><path d="M40 22h20M90 22h20" class="lk"/><text x="30" y="52" text-anchor="middle">김나영</text><text x="120" y="52" text-anchor="middle">교수님</text></svg><span class="tag">A</span><span class="h">한 편을 같이 쓰기</span>
       <span class="p">김나영 1저자, 교수님 공동저자(교신저자 여부는 오늘 협의). 교수님이 6장의 연습실 재구성 과정을 직접 보강합니다.</span>
       <span class="p fit">바뀌는 곳: 초록, 2.4(연구자의 위치), 6장, 7장의 한계</span>
       <span class="p warn"><b>2.4(연구자의 위치)는 이렇게 바뀝니다.</b> 지금은 작가 한 사람의 시선을 교수님의 댓글과 메시지로 보완한다고 씁니다. 함께 쓰게 되면 작가와 연출자가 개고 과정을 같이 돌아보는 방식으로 2.4와 7장의 한계 서술을 다시 씁니다.</span>
       <span class="pick">오늘 정한 안</span></button>
-    <button class="opt" type="button" data-g="authors" data-v="B" data-label="B 두 편으로 나누기" aria-pressed="false"><span class="tag">B</span><span class="h">두 편으로 나누기</span>
+    <button class="opt" type="button" data-g="authors" data-v="B" data-label="B 두 편으로 나누기" aria-pressed="false"><svg class="aico" viewBox="0 0 150 56" aria-hidden="true"><rect x="18" y="4" width="26" height="34" rx="3" class="d"/><path d="M24 14h14M24 20h14M24 26h9" class="dl"/><rect x="106" y="4" width="26" height="34" rx="3" class="d"/><path d="M112 14h14M112 20h14M112 26h9" class="dl"/><path d="M50 16h50M100 28H50" class="lk" marker-end="url(#am)" marker-start="url(#am)"/><text x="31" y="52" text-anchor="middle">김나영 논문</text><text x="119" y="52" text-anchor="middle">교수님 논문</text><defs><marker id="am" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="lkf"/></marker></defs></svg><span class="tag">B</span><span class="h">두 편으로 나누기</span>
       <span class="p">지금 원고는 대본 작법 논문으로 두고, 교수님 주저자로 연출 쪽 논문을 따로 씁니다. 주제는 교수님이 정하시되, 예를 들면 타블로 비방·폴리·라이브 비주얼, 연습실에서 구조를 다시 짠 과정, 8개 전공 22명이 함께한 제작 같은 것들입니다. 두 편이 서로 인용합니다.</span>
       <span class="p fit">어울리는 경우: 연출 쪽 이야기가 많을 때</span>
       <span class="p keep">2.4(연구자의 위치)는 지금대로: 교수님이 이 논문의 저자가 아니므로, 교수님 댓글·메시지를 작가 바깥의 기록으로 인용해 작가 한 사람의 시선을 보완합니다.</span>
       <span class="pick">오늘 정한 안</span></button>
-    <button class="opt" type="button" data-g="authors" data-v="C" data-label="C 단독 저자에 감수" aria-pressed="false"><span class="tag">C</span><span class="h">단독 저자에 감수</span>
+    <button class="opt" type="button" data-g="authors" data-v="C" data-label="C 단독 저자에 감수" aria-pressed="false"><svg class="aico" viewBox="0 0 150 56" aria-hidden="true"><rect x="62" y="4" width="26" height="34" rx="3" class="d"/><path d="M68 14h14M68 20h14M68 26h9" class="dl"/><circle cx="30" cy="14" r="6" class="pp"/><path d="M21 31a9 8 0 0 1 18 0" class="pp"/><circle cx="120" cy="14" r="6" class="pp dash"/><path d="M111 31a9 8 0 0 1 18 0" class="pp dash"/><path d="M40 22h20" class="lk"/><path d="M92 22h18" class="lk dash"/><text x="30" y="52" text-anchor="middle">김나영</text><text x="120" y="52" text-anchor="middle">교수님 감수</text></svg><span class="tag">C</span><span class="h">단독 저자에 감수</span>
       <span class="p">김나영 단독 저자로 내고, 교수님은 자문과 감수를 맡아 감사의 글에 밝힙니다.</span>
       <span class="p fit">어울리는 경우: 대본 작법 논문 한 편으로 두고, 교수님은 검토로 참여하실 때</span>
       <span class="p keep">2.4(연구자의 위치)는 지금대로 둡니다(B안과 같음).</span>
@@ -376,6 +577,15 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
       <tr><td><button type="button" class="pj" data-g="journal" data-v="stp" data-label="Studies in Theatre and Performance" aria-pressed="false" aria-label="Studies in Theatre and Performance를 1순위로"></button></td><td class="sec"><a href="https://www.tandfonline.com/journals/rstp20/about-this-journal">Studies in Theatre and Performance</a><small class="fit">실천에 기반한 연구, 대본과 실천 연구(PaR) 포트폴리오도 실음</small></td><td>논문 6,000~8,000단어</td><td>오픈액세스만 출판. 게재료 금액과 지원 여부 확인 필요</td></tr>
     </tbody>
   </table></div>
+<figure class="strip"><figcaption><b>국내 세 곳 투고 일정(2026년 12월 ~ 2027년 10월)</b></figcaption>
+  <div class="legend"><span><i class="lg dlm"></i>투고 마감</span><span><i class="lg pbm"></i>발간·발행</span><span class="ax">해외 두 곳은 상시 투고</span></div>
+  <div class="scroll vizwrap"><svg class="viz jstrip" viewBox="0 0 1000 198" role="img" aria-labelledby="js-t">
+    <title id="js-t">국내 학술지 세 곳의 2027년 투고 마감과 발간 일정</title>
+    <path class="gx" d="M150.0 42V176M224.5 42V176M299.0 42V176M373.5 42V176M448.0 42V176M522.5 42V176M597.0 42V176M671.5 42V176M746.0 42V176M820.5 42V176M895.0 42V176M969.5 42V176"/><text class="ax" x="184.8" y="34" text-anchor="middle">12월</text><text class="ax" x="259.3" y="34" text-anchor="middle">1월</text><text class="ax" x="333.8" y="34" text-anchor="middle">2월</text><text class="ax" x="408.3" y="34" text-anchor="middle">3월</text><text class="ax" x="482.8" y="34" text-anchor="middle">4월</text><text class="ax" x="557.3" y="34" text-anchor="middle">5월</text><text class="ax" x="631.8" y="34" text-anchor="middle">6월</text><text class="ax" x="706.3" y="34" text-anchor="middle">7월</text><text class="ax" x="780.8" y="34" text-anchor="middle">8월</text><text class="ax" x="855.3" y="34" text-anchor="middle">9월</text><text class="ax" x="929.8" y="34" text-anchor="middle">10월</text>
+    <path class="today" d="M145.0 40V180"/><text class="tdl" x="149.0" y="184">회의일</text>
+    <text class="rl" x="140" y="77" text-anchor="end">한국극예술연구</text><path class="spn" d="M457.0 72H588.0"/><path class="spn" d="M755.0 72H883.5"/><g class="mk dlm"><path d="M448.0 64l8 8l-8 8l-8 -8z"/><title>2027년 3월 31일 마감</title></g><g class="mk pbm"><circle cx="597.0" cy="72" r="7"/><title>5월 31일 발간</title></g><g class="mk dlm"><path d="M746.0 64l8 8l-8 8l-8 -8z"/><title>7월 31일 마감</title></g><g class="mk pbm"><circle cx="892.5" cy="72" r="7"/><title>9월 30일 발간</title></g><text class="rl" x="140" y="121" text-anchor="end">미학예술학연구</text><path class="spn" d="M193.8 116H357.0"/><path class="spn" d="M491.8 116H660.0"/><path class="spn" d="M789.8 116H960.5"/><g class="mk dlm"><path d="M184.8 108l8 8l-8 8l-8 -8z"/><title>2026년 12월 15일 마감</title></g><g class="mk pbm"><circle cx="366.0" cy="116" r="7"/><title>2월 발행</title></g><g class="mk dlm"><path d="M482.8 108l8 8l-8 8l-8 -8z"/><title>4월 15일 마감</title></g><g class="mk pbm"><circle cx="669.0" cy="116" r="7"/><title>6월 발행</title></g><g class="mk dlm"><path d="M780.8 108l8 8l-8 8l-8 -8z"/><title>8월 15일 마감</title></g><g class="mk pbm"><circle cx="969.5" cy="116" r="7"/><title>10월 발행</title></g><text class="rl" x="140" y="165" text-anchor="end">한국연극학</text><g class="mk pbm"><circle cx="224.5" cy="160" r="7"/><title>2026년 12월 31일 발행</title></g><g class="mk pbm"><circle cx="520.0" cy="160" r="7"/><title>4월 30일 발행</title></g><g class="mk pbm"><circle cx="820.5" cy="160" r="7"/><title>8월 31일 발행</title></g><text class="ax" x="333.8" y="165" text-anchor="middle">마감일은 학회 공지 확인</text>
+  </svg></div>
+  <p class="vnote">「한국극예술연구」는 11월 30일 마감을 건너뛰면 2027년 3월 31일 투고, 5월 31일 발간이 가장 빠릅니다.</p></figure>
   <div class="asks panel"><h3>여쭙고 싶은 것</h3><ul>
     <li>교수님께서 이미 회원이신 학회가 있는지(「한국연극학」과 「한국극예술연구」는 정회원만 투고할 수 있습니다)</li>
     <li>국내 한 편을 먼저 낸 뒤 해외 학술지를 따로 준비할지</li>
@@ -394,6 +604,15 @@ footer{font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
       </div></div>
     <div class="panel"><h3>분량과 제목</h3>
       <p>지금 원고는 39쪽입니다. 각주를 포함한 본문이 공백 포함 약 4만 7천 자로, 200자 원고지 약 235매입니다(부록은 별도로 공백 빼고 약 3만 2천 자). 「한국극예술연구」 기준인 150매 이내에 맞추려면 본문을 3분의 1쯤 줄여야 합니다. 3번에서 고른 투고처의 분량에 맞춰 줄이고, 부록 1.1~1.8 가운데 남길 것부터 고릅니다.</p>
+      <figure class="lenfig"><svg class="viz lenbar" viewBox="0 0 560 96" role="img" aria-labelledby="len-t">
+        <title id="len-t">본문 분량 약 235매, 한국극예술연구 기준 150매</title>
+        <g class="gx"><path d="M20 20V74M220.0 20V74M420.0 20V74"/></g>
+        <text class="ax" x="20" y="90" text-anchor="middle">0</text><text class="ax" x="220.0" y="90" text-anchor="middle">100매</text><text class="ax" x="420.0" y="90" text-anchor="middle">200매</text>
+        <g class="bar1"><rect x="20" y="34" width="470.0" height="26" rx="4"/><title>본문(각주 포함) 약 235매</title></g>
+        <text class="bl" x="482.0" y="52" text-anchor="end">본문 약 235매</text>
+        <path class="lim" d="M320.0 22V72"/>
+        <text class="ll" x="320.0" y="16" text-anchor="middle">150매 기준(한국극예술연구)</text>
+      </svg><figcaption>각주 포함 본문만 센 값입니다. 부록은 별도로 공백 빼고 약 3만 2천 자가 더 있습니다.</figcaption></figure>
       <p>제목 1안은 지금 제목(작품명이 부제로 들어감), 2안은 작품명을 빼고 방법론을 앞세운 짧은 제목입니다.</p>
       <div class="opts" style="grid-template-columns:minmax(0,1fr)">
         <button class="opt sm" type="button" data-g="title" data-v="1" data-label="1안 (지금 제목)" aria-pressed="false"><span class="tag">1안</span><span class="p">지금 제목: 「조선 풍속화의 시각 정보를 넌버벌 퍼포먼스 서사로 변환하는 대본 작성 방법론 연구: ⟨매듭: 신윤복을 엮다⟩의 개고 과정을 중심으로」</span><span class="pick">오늘 정한 안</span></button>
